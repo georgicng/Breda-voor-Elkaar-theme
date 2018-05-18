@@ -8,7 +8,7 @@
       "./scripts/customizer.js"
     ]
   },
-  "publicPath": ".",
+  "publicPath": "/wp-content/themes/breda-voor-elkaar",
   "devUrl": "http://bredavoorelkaar.local",
   "proxyUrl": "http://localhost:3000",
   "cacheBusting": "[name]_[hash:8]",
