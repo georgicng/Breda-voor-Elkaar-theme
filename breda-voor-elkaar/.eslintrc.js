@@ -10,7 +10,6 @@ module.exports = {
     "amd": true,
     "browser": true,
     "jquery": true,
-    "prettier": true,
   },
   "parserOptions": {
     "ecmaFeatures": {
@@ -23,7 +22,8 @@ module.exports = {
     "sourceType": "module"
   },
   "plugins": [
-    "import"
+    "import",
+    "prettier"
   ],
   "settings": {
     "import/core-modules": [],
