@@ -1,6 +1,6 @@
 module.exports = {
   "root": true,
-  "extends": "eslint:recommended",
+  "extends": "airbnb",
   "globals": {
     "wp": true
   },
@@ -9,7 +9,8 @@ module.exports = {
     "es6": true,
     "amd": true,
     "browser": true,
-    "jquery": true
+    "jquery": true,
+    "prettier": true,
   },
   "parserOptions": {
     "ecmaFeatures": {
@@ -33,15 +34,15 @@ module.exports = {
   },
   "rules": {
     "no-console": process.env.NODE_ENV === 'production' ? 2 : 0,
-    "comma-dangle": [
-      "error",
-      {
-        "arrays": "always-multiline",
-        "objects": "always-multiline",
-        "imports": "always-multiline",
-        "exports": "always-multiline",
-        "functions": "ignore"
-      }
-    ]
+    "strict": 1,
+    "eol-last": 1,
+    "no-else-return": 1,
+    "max-len": [1, 80, 2],
+    "prefer-arrow-callback": 1,
+    "prefer-template": 2,
+    "prettier/prettier": "error",
+    "indent": [1, 4, { "SwitchCase": 1, "VariableDeclarator": 1 }],
+    "no-loop-func": 0,
+    "no-nested-ternary": 1
   }
 }
