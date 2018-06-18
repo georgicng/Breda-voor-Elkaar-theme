@@ -16,7 +16,7 @@
     // create filter
     ?>
     <div class="filter" data-filter="<?php echo $name; ?>">
-    <?php create_field($field);?>
+    <?php render_field($field); ?>
     </div>
 
 <?php }?>
@@ -26,7 +26,7 @@
 if (have_posts()) {
     while (have_posts()) {
         the_post();
-        the_title();
+        ?> <a href="<?php the_permalink(); ?>"> <?php the_title(); ?> </a> <?php
     }
 } else {
     echo 'Geen vacatures gevonden die voldoen aan uw zoekopdracht.';
