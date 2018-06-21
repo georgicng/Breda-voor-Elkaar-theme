@@ -90,3 +90,17 @@ Container::getInstance()
             'view' => require dirname(__DIR__).'/config/view.php',
         ]);
     }, true);
+
+// TODO: Clean this mess up
+add_action( 'wp_enqueue_scripts', function() {
+    wp_enqueue_style( 'style-name',get_template_directory_uri() . '/parcel/main.css' );
+    wp_enqueue_script( 'script-name', get_template_directory_uri() . '/parcel/main.js');
+});
+// remove wp version param from any enqueued scripts
+function vc_remove_wp_ver_css_js( $src ) {
+    if ( strpos( $src, 'ver=' ) )
+        $src = remove_query_arg( 'ver', $src );
+    return $src;
+}
+add_filter( 'style_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
+add_filter( 'script_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
