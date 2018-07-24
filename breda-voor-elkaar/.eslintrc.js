@@ -45,4 +45,4 @@ module.exports = {
     "no-loop-func": 0,
     "no-nested-ternary": 1
   }
-}
+};

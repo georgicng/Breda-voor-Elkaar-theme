@@ -73,18 +73,31 @@ add_action('after_setup_theme', function () {
  */
 add_action('widgets_init', function () {
     $config = [
-        'before_widget' => '<section class="widget %1$s %2$s">',
-        'after_widget'  => '</section>',
-        'before_title'  => '<h3>',
-        'after_title'   => '</h3>'
+        'before_widget' => '<div class="row %1$s %2$s"><div class="col-sm sidebar__item">',
+        'after_widget'  => '</div></div>',
+        'before_title'  => '<h5 class="sidebar__title">',
+        'after_title'   => '</h5>'
     ];
     register_sidebar([
         'name'          => __('Primary', 'sage'),
         'id'            => 'sidebar-primary'
     ] + $config);
+    $config = [];
     register_sidebar([
-        'name'          => __('Footer', 'sage'),
-        'id'            => 'sidebar-footer'
+        'name'          => __('Footer Column 1', 'sage'),
+        'id'            => 'sidebar-footer-column-1'
+    ] + $config);
+    register_sidebar([
+        'name'          => __('Footer Column 2', 'sage'),
+        'id'            => 'sidebar-footer-column-2'
+    ] + $config);
+    register_sidebar([
+        'name'          => __('Footer Column 3', 'sage'),
+        'id'            => 'sidebar-footer-column-3'
+    ] + $config);
+    register_sidebar([
+        'name'          => __('Footer Column 4', 'sage'),
+        'id'            => 'sidebar-footer-column-4'
     ] + $config);
 });
 

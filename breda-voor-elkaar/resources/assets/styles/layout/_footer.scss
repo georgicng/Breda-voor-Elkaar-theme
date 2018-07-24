@@ -1,0 +1,119 @@
+//.footer {}
+.newsletter {
+  background: $black;
+  color: $white;
+  padding-top: calculaterem(53px);
+  padding-left: calculaterem(171px);
+  width: 50%;
+}
+
+//.newsletter__wrapper {}
+.newsletter__header {
+  width: calculaterem(352px);
+  height: calculaterem(58px);
+  line-height: calculaterem(29px);
+  font-size: calculaterem(22px);
+  font-weight: 800;
+}
+
+.newsletter__text {
+  width: calculaterem(336px);
+  height: calculaterem(72px);
+  margin-bottom: calculaterem(49px);
+  line-height: calculaterem(24px);
+  font-size: calculaterem(16px);
+}
+
+.newsletter__input {
+  width: calculaterem(307px);
+  height: calculaterem(57px);
+}
+
+.newsletter__button {
+  width: calculaterem(140px);
+  height: calculaterem(57px);
+  color: $white;
+  background: $red;
+}
+
+.banner {
+  width: 50%;
+}
+
+.banner__image {
+  width: 100%;
+}
+
+.footer_bottom {
+  padding-top: calculaterem(80px);
+  font-size: calculaterem(15px);
+  line-height: calculaterem(24px);
+}
+
+.footer-menu__header {
+  font-family: $headings-font-family;
+}
+
+.footer-menu__header_green {
+  color: $green;
+}
+
+.footer-menu__header_purple {
+  color: $purple;
+}
+
+.footer-menu__header_yellow {
+  color: $yellow;
+}
+
+.footer-menu__header_blue {
+  color: $blue;
+}
+
+.footer-menu__nav {
+  line-height: calculaterem(20px);
+  margin-bottom: calculaterem(78px);
+}
+
+.footer-menu__icon {
+  margin-bottom: calculaterem(57px);
+}
+
+.footer-menu__contact {
+  line-height: calculaterem(20px);
+  height: calculaterem(261px);
+}
+
+.footer-menu__contact-wrapper {
+  height: calculaterem(261px);
+}
+
+.footer-menu__contact-name {
+  font-family: $headings-font-family;
+  font-weight: 800;
+}
+
+.footer-menu__slogan {
+  color: $gray;
+  margin-bottom: calculaterem(15px);
+}
+
+.footer-menu__slogan_emphasis {
+  color: $blue;
+}
+
+.footer-menu__social-header {
+  font-family: $headings-font-family;
+  font-weight: 800;
+}
+
+.footer-menu__social-link {
+  margin-right: calculaterem(21px);
+}
+
+.footer-menu__copyright {
+  text-align: center;
+  padding-top: calculaterem(44px);
+  padding-bottom: calculaterem(32px);
+  color: $gray;
+}

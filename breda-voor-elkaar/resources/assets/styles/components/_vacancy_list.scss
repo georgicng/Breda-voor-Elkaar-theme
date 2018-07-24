@@ -1,0 +1,79 @@
+.vacancies {
+  padding-top: 5.5625rem;
+  padding-bottom: 6.25rem;
+  background-image: url('../images/home-background.png');
+  background-repeat: no-repeat;
+  background-position: bottom 0rem left 0rem;
+}
+
+.vacancy__title {
+  margin-bottom: 2.8125rem;
+}
+
+.vacancy-sidebar {
+  padding: 0 33px;
+}
+
+.vacancy-sidebar___header {
+  font-size: calculaterem(22px);
+  line-height: calculaterem(29px);
+  font-weight: 800;
+  padding-top: calculaterem(29px);
+  margin-bottom: calculaterem(17px);
+}
+
+.vacancy-sidebar___text {
+  font-size: calculaterem(15px);
+  line-height: calculaterem(24px);
+  height: calculaterem(546px);
+}
+
+.vacancy-sidebar___button {
+  height: calculaterem(48px);
+  width: calculaterem(165px);
+  margin-bottom: calculaterem(32px);
+  line-height: calculaterem(26px);
+  font-size: calculaterem(16px);
+}
+
+//.vacancy__lists {}
+//.vacancy__item {}
+.vacancy-tab {
+  margin-bottom: 2rem;
+}
+
+.vacancy-tab__top {
+  width: 8.25rem;
+  height: 3rem;
+  background: $black;
+  color: white;
+  text-align: center;
+  line-height: calculaterem(35px);
+  font-size: calculaterem(22px);
+  font-family: $headings-font-family;
+}
+
+.vacancy-tab__content {
+  border: 0 !important;
+  border-top: $border-top !important;
+  box-shadow: $box-shadow-sm !important;
+  background: $white;
+}
+
+//.vacancy-tab__header {}
+.vacancy-tab__subheader {
+  line-height: calculaterem(29px);
+  font-size: calculaterem(22px);
+  margin-bottom: calculaterem(28px);
+}
+
+.vacancy-tab__body {
+  line-height: calculaterem(24px);
+  font-size: calculaterem(16px);
+}
+
+.vacancy-tab__link {
+  line-height: calculaterem(26px);
+  font-size: calculaterem(16px);
+  font-weight: 800;
+}

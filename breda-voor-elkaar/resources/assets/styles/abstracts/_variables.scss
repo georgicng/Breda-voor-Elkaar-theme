@@ -1,0 +1,49 @@
+// CSS debug
+$debug: false;
+// Colors
+$white: #fff;
+$off-white: #f2f2f2;
+$gray: #c8c8c8;
+$black: #000;
+$red: #e6333c;
+$blue: #6bc4cb;
+$purple: #ba50a2;
+$yellow: #ef7a1a;
+$green: #50ba3a;
+// Typography
+$font-family-sans-serif: "Mohr-Regular",
+sans-serif;
+$headings-font-family: "MohrAlt-Regular";
+//$heading-font: 'sans-serif';
+$paragraph-font: 'sans-serif';
+$font-awesome-font-family: 'Font Awesome 5 Free';
+//Typography font-size
+$font-size-base: 1rem;
+$font-size-lg: $font-size-base;
+$h1-font-size: $font-size-base * 3;
+$h2-font-size: $font-size-base * 2.25;
+$h3-font-size: $font-size-base * 1.375;
+// Assign colors
+$primary: $black;
+$secondary: $off-white;
+$tertiary: $blue;
+$link-color: $black;
+$border-color: $black;
+$custom-container: 0 10.6875rem;
+// Grid settings
+$grid-columns-amount: 12;
+//$grid-gutter-width: 3rem;
+//$grid-row-gap-height: 2rem;
+/*$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1024px
+);*/
+
+$container-max-widths: ( sm: 33.75rem, md: 45rem, lg: 60rem, xl: 64rem);
+//border
+$border-top: 1.125rem solid $black;
+$enable-rounded: false;
+$card-deck-margin: 1rem;
+$fa-font-path: "../fontawesome";

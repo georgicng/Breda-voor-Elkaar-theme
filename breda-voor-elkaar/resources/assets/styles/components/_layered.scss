@@ -1,0 +1,37 @@
+.layered__group-header {
+  line-height: calculaterem(29px);
+  font-size: calculaterem(22px);
+  margin-bottom: calculaterem(10px);
+}
+
+.layered__group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: calculaterem(49px);
+}
+
+.layered__field-radio-wrapper {
+  margin-bottom: calculaterem(10px);
+}
+
+.layered__field-radio {
+  width: calculaterem(16px); //height: calculaterem(16px);
+}
+
+.layered__field-wrap {
+  width: calculaterem(259px);
+  height: calculaterem(19px);
+  margin-bottom: calculaterem(10px);
+}
+
+//.layered__field-checkbox-wrapper {}
+.layered__field-checkbox {
+  width: calculaterem(16px); //height: calculaterem(16px);
+}
+
+.layered__btn {
+  color: $blue;
+  font-weight: 800;
+  line-height: calculaterem(29px); //1.6875rem;
+  font-size: calculaterem(16px); //1.25rem;
+}

@@ -1,0 +1,14 @@
+.navbar {
+  height: 6.3125rem;
+  color: $black;
+  background: $white;
+  line-height: 1.3125rem;
+}
+
+.navbar__container {
+  margin: $custom-container;
+}
+
+.nav-item:not(:last-child) {
+  padding: 0 1.4rem;
+}
