@@ -15,13 +15,12 @@
             
             @foreach($items as $item)
                 @if ($loop->first || $loop->iteration % 3 == 1)
-                    <div cass="row">
-                        <div class="card-deck">
+                    <div cass="row">                        
                 @endif
+                <div class="col-sm-4">
                         @include('partials.content-'.get_post_type())
-                
-                @if($loop->last || $loop->iteration % 3 == 0)
-                        </div>
+                </div>
+                @if($loop->last || $loop->iteration % 3 == 0)                        
                     </div>
                 @endif
             @endforeach

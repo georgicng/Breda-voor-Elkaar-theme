@@ -7,16 +7,16 @@
     <div class="cv__social-icons">
         <span class="cv__social-text">Deel deze pagina</span>
         <a href="#">
-            <img src="assets/img/facebook.svg" class="cv__social-link" alt="Facebook">
+            <img src="@asset('images/facebook.svg')" class="cv__social-link" alt="Facebook">
         </a>
         <a href="#">
-            <img src="assets/img/twitter.svg" class="cv__social-link" alt="Twitter">
+            <img src="@asset('images/twitter.svg')" class="cv__social-link" alt="Twitter">
         </a>
         <a href="#">
-            <img src="assets/img/linkedin.svg" class="cv__social-link" alt="Linkedin">
+            <img src="@asset('images/linkedin.svg')" class="cv__social-link" alt="Linkedin">
         </a>
         <a href="#">
-            <img src="assets/img/google.svg" class="cv__social-link cv__social-link_last" alt=Google + "">
+            <img src="@asset('images/google.svg')" class="cv__social-link cv__social-link_last" alt=Google + "">
         </a>
     </div>
 </nav>
