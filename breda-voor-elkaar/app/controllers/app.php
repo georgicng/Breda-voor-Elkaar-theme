@@ -42,8 +42,8 @@ class App extends Controller
         return $args;
     }
 
-    // custom menu example @ https://digwp.com/2011/11/html-formatting-custom-menus/
-    public static function get_clean_menu($menu_slug)
+    // custom menu
+    public static function getCleanMenu($menu_slug)
     {
         $menu_name = $menu_slug;
         if (($locations = get_nav_menu_locations()) && isset($locations[$menu_name])) {
@@ -65,36 +65,4 @@ class App extends Controller
         return $menu_list;
     }
 
-    public function contentdeck()
-    {
-        $args = array(
-            'post_type' => array('content'),
-            'posts_per_page' => 4,
-        );
-
-        $query = new \WP_Query($args);
-        return array_map(function ($post) {
-            return [
-                'title' => $post->post_title,
-                'content' => get_field("snippet", $post->ID),
-                'link' => get_field("link", $post->ID),
-            ];
-        }, $query->posts);
-    }
-
-    public function links()
-    {
-        $args = array(
-            'post_type' => array('link'),
-            'posts_per_page' => 9,
-        );
-
-        $query = new \WP_Query($args);
-        return array_map(function ($post) {
-            return [
-                'title' => $post->post_title,
-                'link' => get_field("url", $post->ID),
-            ];
-        }, $query->posts);
-    }
 }

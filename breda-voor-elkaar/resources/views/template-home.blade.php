@@ -4,7 +4,8 @@
 
 @extends('layouts.app')
 
-@include('partials.page-header')
-@include('partials.content-blocks')
-@include('partials.content-links')
-@include('partials.content-courses')
+@section('content')
+    @include('partials.page-header')
+    
+    <h1> Home Template</h1>
+@endsection
