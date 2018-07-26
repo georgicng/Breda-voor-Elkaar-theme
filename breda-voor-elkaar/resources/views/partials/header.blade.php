@@ -3,6 +3,6 @@
     <div class="header__search">
       <input type="text" placeholder="Zoeken" class="header__input" />
     </div>
-    <a href="#" class="header__login">Inloggen</a>
+    <a href="@php echo wp_login_url(); @endphp" class="header__login">Inloggen</a>
   </div>
 </header>

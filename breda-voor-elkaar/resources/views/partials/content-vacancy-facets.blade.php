@@ -7,9 +7,9 @@
                     @foreach($field['choices'] as $value => $label)
                         <div class="d-flex justify-content-between layered__field-wrap">
                             <div class="layered__field-checkbox-wrapper">
-                                <input type="checkbox" name="{{$field['name']}}[]" value="{{$value}}" class="layered__field-checkbox" 
+                            <input type="checkbox" name="{{$field['name']}}[]" value="{{$value}}" id="{{$field['name']}}-{{$loop->iteration}}" class="layered__field-checkbox" 
                                     @php echo in_array($value, $field['value'])? 'checked':'' @endphp>
-                                <label>{{$label}}</label>
+                                <label for="{{$field['name']}}-{{$loop->iteration}}">{{$label}}</label>
                             </div>
                             <span class="text-right layered__field-checkbox-value"></span>
                         </div>
@@ -18,9 +18,9 @@
                 @if($field['type']  == "radio")
                     @foreach($field['choices'] as $value => $label)
                             <div class="layered__field-radio-wrapper">
-                                <input type="radio" name="{{$field['name']}}" value="{{$value}}" class="layered__field-radio" 
+                                <input type="radio" name="{{$field['name']}}" value="{{$value}}" id="{{$field['name']}}-{{$loop->iteration}}" class="layered__field-radio" 
                                     @php echo in_array($value, $field['value'])? 'checked':'' @endphp>
-                                <label>{{$label}}</label>
+                                <label for="{{$field['name']}}-{{$loop->iteration}}">{{$label}}</label>
                             </div>
                     @endforeach
                 @endif

@@ -11,11 +11,14 @@ $purple: #ba50a2;
 $yellow: #ef7a1a;
 $green: #50ba3a;
 // Typography
-$font-family-sans-serif: "Mohr-Regular",
+$font-family-sans-serif: Mohr-Regular,
+Mohr-Thin,
 sans-serif;
-$headings-font-family: "MohrAlt-Regular";
+$headings-font-family: MohrAlt-Regular;
 //$heading-font: 'sans-serif';
-$paragraph-font: 'sans-serif';
+$paragraph-font: Mohr-Regular,
+'sans-serif';
+$font-family-base: $font-family-sans-serif;
 $font-awesome-font-family: 'Font Awesome 5 Free';
 //Typography font-size
 $font-size-base: 1rem;

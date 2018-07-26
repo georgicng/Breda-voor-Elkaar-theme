@@ -108,28 +108,11 @@ class ArchiveVacancies extends Controller
                 'title' => $post->post_title,
                 'link' => get_permalink($post->ID),
                 'image_link' => get_the_post_thumbnail_url($post->ID, [200, 200]),
-                'excerpt' => $this->getExcerpt($post, 60),
+                'excerpt' => wp_kses_post(wp_trim_words($post->post_content, 25, '...')),
                 'subtitle' => $post->post_title,
                 'footer' => get_field("image_link", $post->ID),
             ];
         }, $query->posts);
     }
 
-    private function getExcerpt($post, $wordsreturned)
-    {
-        if (get_class($post) == 'WP_Post') {
-            $string = strip_tags($post->post_content);
-            $retval = $string; //  Just in case of a problem
-
-            $array = explode(" ", $string);
-            if (count($array) <= $wordsreturned) {
-                $retval = $string;
-            } else {
-                array_splice($array, $wordsreturned);
-                $retval = implode(" ", $array) . " ...";
-            }
-            return $retval;
-        }
-        return '';
-    }
 }

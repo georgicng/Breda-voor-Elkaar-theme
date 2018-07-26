@@ -5,27 +5,21 @@
 
     <section class="related">
         <div class="container">
-            <h1 class="related__header">{{ $title }}</h1>
+            <h1 class="related__header">{!! App::title() !!}</h1>
             
             @empty($items)
                 <div class="alert alert-warning">
                 <div>Hello, Nothing to display</div>
                 </div>
             @endempty
+            <div class="card-columns">
+                @foreach($items as $item)
+                    @include('partials.content-'.get_post_type())
             
-            @foreach($items as $item)
-                @if ($loop->first || $loop->iteration % 3 == 1)
-                    <div cass="row">                        
-                @endif
-                <div class="col-sm-4">
-                        @include('partials.content-'.get_post_type())
-                </div>
-                @if($loop->last || $loop->iteration % 3 == 0)                        
-                    </div>
-                @endif
-            @endforeach
+                @endforeach
+            </div>
         </div>
     </section>
     
-    {!! get_the_posts_navigation() !!}
+    {!!  App\bootstrap_pagination() !!}
 @endsection

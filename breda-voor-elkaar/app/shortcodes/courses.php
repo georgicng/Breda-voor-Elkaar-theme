@@ -43,7 +43,7 @@ function create_courses_shortcode($atts, $content = null)
                         <div class="vacancy-sidebar___text">
                             <?php echo $content ?>
                         </div>
-                        <a href="<?php echo "/courses"; ?>" class="btn btn-light vacancy-sidebar___button">alle cursussen ›</a>
+                        <a href="<?php echo get_post_type_archive_link('vacancies'); ?>" class="btn btn-light vacancy-sidebar___button">alle cursussen ›</a>
                     </div>
                 </sidebar>
                 <div class="w-100 d-lg-none my-3">

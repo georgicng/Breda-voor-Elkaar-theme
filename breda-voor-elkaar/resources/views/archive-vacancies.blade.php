@@ -19,7 +19,7 @@
                         echo 'Geen vacatures gevonden die voldoen aan uw zoekopdracht.';
                     @endempty
                     
-                    {!! get_the_posts_navigation() !!}
+                    {!!  App\bootstrap_pagination()!!}
                 </main>
             </div>
         </div>

@@ -69,6 +69,20 @@ add_filter('comments_template', function ($comments_template) {
     return template_path(locate_template(["views/{$comments_template}", $comments_template]) ?: $comments_template);
 }, 100);
 
+//return acf array instead of object in blade templates
 add_filter('sober/controller/acf/array', function () {
     return true;
+});
+
+//Use custom nav walker for menu widget
+add_filter('widget_nav_menu_args', function ($nav_menu_args) {
+    $nav_menu_args = [
+        'menu' => $nav_menu_args['menu'],
+        'items_wrap' => '%3$s',
+        'container' => 'nav',
+        'container_class' => 'footer-menu__nav d-flex flex-column',
+        'walker' => new Widget_Walker(),
+    ];
+
+    return $nav_menu_args;
 });

@@ -1,12 +1,12 @@
-<div class="footer_top">
+<div class="footer_top d-flex flex-row">
     <div class="newsletter">
         <div class="newsletter__wrapper d-md-flex flex-md-column justify-content-md-center align-items-md-start">
             <h3 class="newsletter__header">Wil je op de hoogte blijven? </h3>
             <p class="newsletter__text">Laat dan je e-mailadres achter om de meest recente vacatures, kandidaten en ander nieuws te ontvangen.</p>
-            <div class="d-md-flex">
-                <input name="email" class="form-control newsletter__input" placeholder="ZJe e-mail adres" />
-                <button class="btn btn-danger newsletter__button">Aanmelden</button>
-            </div>
+            <form action="{{get_option('mc_subscriptionlist')}}" method="post" class="d-md-flex">                
+                <input name="EMAIL" class="form-control newsletter__input" placeholder="ZJe e-mail adres" />
+                <button id="subscribe" class="btn btn-danger newsletter__button">Aanmelden</button>
+            </form>
         </div>
     </div>  
     <div class="banner">

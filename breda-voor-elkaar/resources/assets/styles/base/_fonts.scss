@@ -5,91 +5,7 @@
  * The fonts listed in this notice are subject to the End User License
  * Agreement(s) entered into by the website owner. All other parties are 
  * explicitly restricted from using the Licensed Webfonts(s).
- * 
- * You may obtain a valid license at the URLs below.
- * 
- * Webfont: Mohr-ThinIt by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/thin-italic/
- * 
- * Webfont: Mohr-SemiBoldIt by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/semi-bold-italic/
- * 
- * Webfont: Mohr-ExtraLightIt by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/extra-light-italic/
- * 
- * Webfont: Mohr-RegularIt by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/regular-italic/
- * 
- * Webfont: Mohr-HeavyIt by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/heavy-italic/
- * 
- * Webfont: Mohr-LightIt by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/light-italic/
- * 
- * Webfont: Mohr-Thin by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/thin/
- * 
- * Webfont: Mohr-BoldIt by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/bold-italic/
- * 
- * Webfont: MohrAlt-Thin by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/alt-thin/
- * 
- * Webfont: Mohr-MediumIt by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/medium-talic/
- * 
- * Webfont: Mohr-BlackIt by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/black-italic/
- * 
- * Webfont: MohrAlt-ExtraLight by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/alt-extra-light/
- * 
- * Webfont: MohrAlt-Light by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/alt-light/
- * 
- * Webfont: MohrAlt-SemiBold by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/alt-semi-bold/
- * 
- * Webfont: Mohr-ExtraLight by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/extra-light/
- * 
- * Webfont: Mohr-Light by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/light/
- * 
- * Webfont: MohrAlt-Regular by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/alt-regular/
- * 
- * Webfont: Mohr-SemiBold by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/semi-bold/
- * 
- * Webfont: Mohr-Medium by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/medium/
- * 
- * Webfont: Mohr-Regular by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/regular/
- * 
- * Webfont: MohrAlt-Heavy by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/alt-heavy/
- * 
- * Webfont: MohrAlt-Medium by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/alt-medium/
- * 
- * Webfont: Mohr-Bold by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/bold/
- * 
- * Webfont: MohrAlt-Bold by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/alt-bold/
- * 
- * Webfont: MohrAlt-Black by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/alt-black/
- * 
- * Webfont: Mohr-Heavy by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/heavy/
- * 
- * Webfont: Mohr-Black by Latinotype
- * URL: https://www.myfonts.com/fonts/latinotype/mohr/black/
- * 
- * 
+ *
  * License: https://www.myfonts.com/viewlicense?type=web&buildid=3547638
  * Licensed pageviews: 10,000
  * Webfonts copyright: Copyright &#x00A9; 2018 by Sofia Mohr. All rights reserved.
@@ -100,163 +16,31 @@
 /* @import must be at top of file, otherwise CSS will not work */
 
 @font-face {
-  font-family: "Mohr-ThinIt";
-  src: url("../fonts/3621F6_0_0.eot");
-  src: url("../fonts/3621F6_0_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_0_0.woff2") format("woff2"), url("../fonts/3621F6_0_0.woff") format("woff"), url("../fonts/3621F6_0_0.ttf") format("truetype");
+  font-family: 'Mohr-Light';
+  src: url('../fonts/3621F6_F_0.eot?#iefix') format('embedded-opentype'), url('../fonts/3621F6_F_0.woff2') format('woff2'), url('../fonts/3621F6_F_0.woff') format('woff'), url('../fonts/3621F6_F_0.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Mohr-SemiBoldIt";
-  src: url("../fonts/3621F6_1_0.eot");
-  src: url("../fonts/3621F6_1_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_1_0.woff2") format("woff2"), url("../fonts/3621F6_1_0.woff") format("woff"), url("../fonts/3621F6_1_0.ttf") format("truetype");
+  font-family: 'Mohr-Regular';
+  src: url('../fonts/3621F6_13_0.eot?#iefix') format('embedded-opentype'), url('../fonts/3621F6_13_0.woff2') format('woff2'), url('../fonts/3621F6_13_0.woff') format('woff'), url('../fonts/3621F6_13_0.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Mohr-ExtraLightIt";
-  src: url("../fonts/3621F6_2_0.eot");
-  src: url("../fonts/3621F6_2_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_2_0.woff2") format("woff2"), url("../fonts/3621F6_2_0.woff") format("woff"), url("../fonts/3621F6_2_0.ttf") format("truetype");
+  font-family: 'Mohr-Bold';
+  src: url('../fonts/3621F6_16_0.eot?#iefix') format('embedded-opentype'), url('../fonts/3621F6_16_0.woff2') format('woff2'), url('../fonts/3621F6_16_0.woff') format('woff'), url('../fonts/3621F6_16_0.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Mohr-RegularIt";
-  src: url("../fonts/3621F6_3_0.eot");
-  src: url("../fonts/3621F6_3_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_3_0.woff2") format("woff2"), url("../fonts/3621F6_3_0.woff") format("woff"), url("../fonts/3621F6_3_0.ttf") format("truetype");
+  font-family: 'MohrAlt-Regular';
+  src: url('../fonts/3621F6_10_0.eot?#iefix') format('embedded-opentype'), url('../fonts/3621F6_10_0.woff2') format('woff2'), url('../fonts/3621F6_10_0.woff') format('woff'), url('../fonts/3621F6_10_0.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Mohr-HeavyIt";
-  src: url("../fonts/3621F6_4_0.eot");
-  src: url("../fonts/3621F6_4_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_4_0.woff2") format("woff2"), url("../fonts/3621F6_4_0.woff") format("woff"), url("../fonts/3621F6_4_0.ttf") format("truetype");
+  font-family: 'MohrAlt-Medium';
+  src: url('../fonts/3621F6_15_0.eot?#iefix') format('embedded-opentype'), url('../fonts/3621F6_15_0.woff2') format('woff2'), url('../fonts/3621F6_15_0.woff') format('woff'), url('../fonts/3621F6_15_0.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Mohr-LightIt";
-  src: url("../fonts/3621F6_5_0.eot");
-  src: url("../fonts/3621F6_5_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_5_0.woff2") format("woff2"), url("../fonts/3621F6_5_0.woff") format("woff"), url("../fonts/3621F6_5_0.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Mohr-Thin";
-  src: url("../fonts/3621F6_6_0.eot");
-  src: url("../fonts/3621F6_6_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_6_0.woff2") format("woff2"), url("../fonts/3621F6_6_0.woff") format("woff"), url("../fonts/3621F6_6_0.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Mohr-BoldIt";
-  src: url("../fonts/3621F6_7_0.eot");
-  src: url("../fonts/3621F6_7_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_7_0.woff2") format("woff2"), url("../fonts/3621F6_7_0.woff") format("woff"), url("../fonts/3621F6_7_0.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "MohrAlt-Thin";
-  src: url("../fonts/3621F6_8_0.eot");
-  src: url("../fonts/3621F6_8_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_8_0.woff2") format("woff2"), url("../fonts/3621F6_8_0.woff") format("woff"), url("../fonts/3621F6_8_0.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Mohr-MediumIt";
-  src: url("../fonts/3621F6_9_0.eot");
-  src: url("../fonts/3621F6_9_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_9_0.woff2") format("woff2"), url("../fonts/3621F6_9_0.woff") format("woff"), url("../fonts/3621F6_9_0.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Mohr-BlackIt";
-  src: url("../fonts/3621F6_A_0.eot");
-  src: url("../fonts/3621F6_A_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_A_0.woff2") format("woff2"), url("../fonts/3621F6_A_0.woff") format("woff"), url("../fonts/3621F6_A_0.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "MohrAlt-ExtraLight";
-  src: url("../fonts/3621F6_B_0.eot");
-  src: url("../fonts/3621F6_B_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_B_0.woff2") format("woff2"), url("../fonts/3621F6_B_0.woff") format("woff"), url("../fonts/3621F6_B_0.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "MohrAlt-Light";
-  src: url("../fonts/3621F6_C_0.eot");
-  src: url("../fonts/3621F6_C_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_C_0.woff2") format("woff2"), url("../fonts/3621F6_C_0.woff") format("woff"), url("../fonts/3621F6_C_0.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "MohrAlt-SemiBold";
-  src: url("../fonts/3621F6_D_0.eot");
-  src: url("../fonts/3621F6_D_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_D_0.woff2") format("woff2"), url("../fonts/3621F6_D_0.woff") format("woff"), url("../fonts/3621F6_D_0.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Mohr-ExtraLight";
-  src: url("../fonts/3621F6_E_0.eot");
-  src: url("../fonts/3621F6_E_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_E_0.woff2") format("woff2"), url("../fonts/3621F6_E_0.woff") format("woff"), url("../fonts/3621F6_E_0.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Mohr-Light";
-  src: url("../fonts/3621F6_F_0.eot");
-  src: url("../fonts/3621F6_F_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_F_0.woff2") format("woff2"), url("../fonts/3621F6_F_0.woff") format("woff"), url("../fonts/3621F6_F_0.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "MohrAlt-Regular";
-  src: url("../fonts/3621F6_10_0.eot");
-  src: url("../fonts/3621F6_10_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_10_0.woff2") format("woff2"), url("../fonts/3621F6_10_0.woff") format("woff"), url("../fonts/3621F6_10_0.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Mohr-SemiBold";
-  src: url("../fonts/3621F6_11_0.eot");
-  src: url("../fonts/3621F6_11_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_11_0.woff2") format("woff2"), url("../fonts/3621F6_11_0.woff") format("woff"), url("../fonts/3621F6_11_0.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Mohr-Medium";
-  src: url("../fonts/3621F6_12_0.eot");
-  src: url("../fonts/3621F6_12_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_12_0.woff2") format("woff2"), url("../fonts/3621F6_12_0.woff") format("woff"), url("../fonts/3621F6_12_0.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Mohr-Regular";
-  src: url("../fonts/3621F6_13_0.eot");
-  src: url("../fonts/3621F6_13_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_13_0.woff2") format("woff2"), url("../fonts/3621F6_13_0.woff") format("woff"), url("../fonts/3621F6_13_0.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "MohrAlt-Heavy";
-  src: url("../fonts/3621F6_14_0.eot");
-  src: url("../fonts/3621F6_14_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_14_0.woff2") format("woff2"), url("../fonts/3621F6_14_0.woff") format("woff"), url("../fonts/3621F6_14_0.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "MohrAlt-Medium";
-  src: url("../fonts/3621F6_15_0.eot");
-  src: url("../fonts/3621F6_15_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_15_0.woff2") format("woff2"), url("../fonts/3621F6_15_0.woff") format("woff"), url("../fonts/3621F6_15_0.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Mohr-Bold";
-  src: url("../fonts/3621F6_16_0.eot");
-  src: url("../fonts/3621F6_16_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_16_0.woff2") format("woff2"), url("../fonts/3621F6_16_0.woff") format("woff"), url("../fonts/3621F6_16_0.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "MohrAlt-Bold";
-  src: url("../fonts/3621F6_17_0.eot");
-  src: url("../fonts/3621F6_17_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_17_0.woff2") format("woff2"), url("../fonts/3621F6_17_0.woff") format("woff"), url("../fonts/3621F6_17_0.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "MohrAlt-Black";
-  src: url("../fonts/3621F6_18_0.eot");
-  src: url("../fonts/3621F6_18_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_18_0.woff2") format("woff2"), url("../fonts/3621F6_18_0.woff") format("woff"), url("../fonts/3621F6_18_0.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Mohr-Heavy";
-  src: url("../fonts/3621F6_19_0.eot");
-  src: url("../fonts/3621F6_19_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_19_0.woff2") format("woff2"), url("../fonts/3621F6_19_0.woff") format("woff"), url("../fonts/3621F6_19_0.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Mohr-Black";
-  src: url("../fonts/3621F6_1A_0.eot");
-  src: url("../fonts/3621F6_1A_0.eot?#iefix") format("embedded-opentype"), url("../fonts/3621F6_1A_0.woff2") format("woff2"), url("../fonts/3621F6_1A_0.woff") format("woff"), url("../fonts/3621F6_1A_0.ttf") format("truetype");
+  font-family: 'MohrAlt-Bold';
+  src: url('../fonts/3621F6_17_0.eot?#iefix') format('embedded-opentype'), url('../fonts/3621F6_17_0.woff2') format('woff2'), url('../fonts/3621F6_17_0.woff') format('woff'), url('../fonts/3621F6_17_0.ttf') format('truetype');
 }

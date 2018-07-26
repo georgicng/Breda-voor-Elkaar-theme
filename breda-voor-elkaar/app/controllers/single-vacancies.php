@@ -4,7 +4,7 @@ namespace App;
 
 use Sober\Controller\Controller;
 
-class SingleVacancy extends Controller
+class SingleVacancies extends Controller
 {
     private $organisation;
 

@@ -6,7 +6,7 @@
                     <div class="bg-danger text-light p-4">
                         <h3 class="vacancy-sidebar___header">{{$course_intro}}</h3>
                         <div class="vacancy-sidebar___text">
-                            {{ $course_description }}
+                            {!! $course_description !!}
                         </div>
                         <a href="{{$course_link}}" class="btn btn-light vacancy-sidebar___button">alle cursussen ›</a>
                     </div>

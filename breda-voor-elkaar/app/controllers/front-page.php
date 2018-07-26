@@ -50,8 +50,8 @@ class FrontPage extends Controller
             return [
                 'title' => $post->post_title,
                 'link' => $post->post_permalink,
-                'excerpt' => $post->post_excerpt,
-                'date' => get_field("date", $post->ID),
+                'excerpt' => wp_kses_post(wp_trim_words($post->post_content, 25, '...')),
+                'date' =>  date_format(date_create(get_field("date", $post->ID)), "d M"),
                 'lesson' => get_field("lesson", $post->ID),
             ];
         }, $query->posts);
@@ -59,22 +59,22 @@ class FrontPage extends Controller
 
     public function courseLink()
     {
-        return \get_post_type_archive_link('post');
+        return \get_post_type_archive_link('vacancies');
     }
 
     public function courseIntro()
     {
-        return 'Sub Title';
+        return get_field('course_subtitle');
     }
 
     public function courseDescription()
     {
-        return 'body';
+        return get_field('course_description');
     }
 
     public function courseTitle()
     {
-        return 'Title';
+        return get_field('course_title');
     }
 
     public function news()

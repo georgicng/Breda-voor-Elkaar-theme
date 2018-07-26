@@ -9,7 +9,7 @@ class Single extends Controller
     public function headerImage()
     {
         global $post;
-        return get_the_post_thumbnail_url($post, array(1270, 300));
+        return get_the_post_thumbnail_url($post, 'post-thumbnail');
     }
 
     public function item()

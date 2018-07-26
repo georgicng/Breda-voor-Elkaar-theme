@@ -25,6 +25,6 @@ class Index extends Controller
 
     public function title()
     {
-        return get_the_archive_title();
+        return get_the_title();
     }
 }

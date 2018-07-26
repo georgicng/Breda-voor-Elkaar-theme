@@ -2,7 +2,7 @@
 <html @php language_attributes() @endphp>
   @include('partials.head')
   <body @php body_class() @endphp>
-  @include('partials.header')
+    @include('partials.header')
     @php do_action('get_header') @endphp
     @include('partials.navigation')
     @yield('content')

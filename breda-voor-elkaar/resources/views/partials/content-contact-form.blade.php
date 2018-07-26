@@ -1,15 +1,15 @@
 <div class="row">
     <div class="col-sm sidebar__item">
         <h5 class="sidebar__title">Contact</h5>
-        <form class="sidebar__form contact-form">
+        <form action="https://formspree.io/{{get_option('admin_email')}}" class="sidebar__form contact-form">
             <div class="form-group">
-                <input type="text" placeholder="Voer je naam in *" class="form-control contact-form__input">
+                <input type="text" name="name" placeholder="Voer je naam in *" class="form-control contact-form__input">
             </div>
             <div class="form-group">
-                <input type="email" placeholder="E-mailadres *" class="form-control contact-form__input">
+                <input type="email" name="email" placeholder="E-mailadres *" class="form-control contact-form__input">
             </div>
             <div class="form-group">
-                <input type="text" placeholder="Telefoonnummer *" class="form-control contact-form__input">
+                <input type="text" name="phone" placeholder="Telefoonnummer *" class="form-control contact-form__input">
             </div>
             <div class="form-group">
                 <textarea name="message" class="form-control contact-form__input" id="" cols="30" rows="10">Je bericht</textarea>
