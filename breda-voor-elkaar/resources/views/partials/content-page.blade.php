@@ -1,2 +1,8 @@
-@php the_content() @endphp
-{!! wp_link_pages(['echo' => 0, 'before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']) !!}
+<section @php post_class() @endphp>
+    <div class="page__body container">
+        <h1 class="page__header">@php the_title() @endphp</h1>
+        <div class="page__content" >
+            @php the_content() @endphp
+        </div>
+    </div>
+</section>

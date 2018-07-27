@@ -1,0 +1,201 @@
+//.footer {}
+.footer_top {
+  display: flex;
+  flex-direction: column;
+}
+
+@include media-breakpoint-up(md) {
+  .footer_top {
+    flex-direction: row;
+  }
+}
+
+.newsletter {
+  background: $black;
+  padding-top: calculaterem(30px);
+  padding-right: calculaterem(10px);
+  padding-left: calculaterem(16px);
+  padding-bottom: calculaterem(30px);
+  color: $white;
+  width: 100%;
+}
+
+@include media-breakpoint-up(md) {
+  .newsletter {
+    padding-top: calculaterem(53px);
+    padding-left: calculaterem(64px);
+    padding-right: calculaterem(32px);
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .newsletter {
+    padding-left: calculaterem(48px);
+    padding-right: calculaterem(48px);
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .newsletter {
+    padding-left: calculaterem(171px);
+  }
+}
+
+//.newsletter__wrapper {}
+.newsletter__header {
+  line-height: calculaterem(29px);
+  font-size: calculaterem(22px);
+  font-weight: 800;
+  margin-bottom: calculaterem(27px);
+}
+
+@include media-breakpoint-up(lg) {
+  .newsletter__header {
+    width: calculaterem(352px);
+    height: calculaterem(58px);
+  }
+}
+
+.newsletter__text {
+  line-height: calculaterem(24px);
+  font-size: calculaterem(16px);
+  margin-bottom: calculaterem(28px);
+}
+
+@include media-breakpoint-up(lg) {
+  .newsletter__text {
+    width: calculaterem(336px);
+    height: calculaterem(72px);
+    margin-bottom: calculaterem(49px);
+  }
+}
+
+.newsletter__input {
+  width: 100%;
+  height: calculaterem(57px);
+  margin-bottom: calculaterem(10px);
+}
+
+@include media-breakpoint-up(lg) {
+  .newsletter__input {
+    width: calculaterem(307px);
+    margin-bottom: 0;
+  }
+}
+
+.newsletter__button {
+  width: 100%;
+  height: calculaterem(57px);
+  color: $white;
+  background: $red;
+}
+
+@include media-breakpoint-up(lg) {
+  .newsletter__button {
+    width: calculaterem(140px);
+  }
+}
+
+.banner {
+  width: 100%;
+}
+
+.banner__image {
+  width: 100%;
+}
+
+@include media-breakpoint-up(md) {
+  .banner__image {
+    height: 100%;
+  }
+}
+
+.footer_bottom {
+  padding-top: calculaterem(80px);
+  font-size: calculaterem(15px);
+  line-height: calculaterem(24px);
+}
+
+.footer-menu__header {
+  font-family: $headings-font-family;
+}
+
+.footer-menu__header_green {
+  color: $green;
+}
+
+.footer-menu__header_purple {
+  color: $purple;
+}
+
+.footer-menu__header_yellow {
+  color: $yellow;
+}
+
+.footer-menu__header_blue {
+  color: $blue;
+}
+
+.footer-menu__nav {
+  line-height: calculaterem(20px);
+  margin-bottom: calculaterem(78px);
+}
+
+.footer-menu__icon {
+  margin-bottom: calculaterem(57px);
+}
+
+.footer-menu__contact {
+  line-height: calculaterem(20px);
+  height: calculaterem(261px);
+}
+
+.footer-menu__contact-wrapper {
+  height: calculaterem(261px);
+}
+
+.footer-menu__contact-name {
+  font-family: $headings-font-family;
+  font-weight: 800;
+}
+
+.footer-menu__slogan {
+  color: $gray;
+  margin-bottom: calculaterem(15px);
+}
+
+.footer-menu__slogan_emphasis {
+  color: $blue;
+}
+
+.footer-menu__social-header {
+  font-family: $headings-font-family;
+  font-weight: 800;
+}
+
+.footer-menu__social-link {
+  margin-right: calculaterem(21px);
+}
+
+.footer-menu__copyright {
+  text-align: center;
+  padding-top: calculaterem(44px);
+  padding-bottom: calculaterem(32px);
+  color: $gray;
+}
+
+.nav_menu-2 h5 {
+  color: $green;
+}
+
+.nav_menu-3 h5 {
+  color: $blue;
+}
+
+.nav_menu-4 h5 {
+  color: $yellow;
+}
+
+.nav_menu-5 h5 {
+  color: $purple;
+}

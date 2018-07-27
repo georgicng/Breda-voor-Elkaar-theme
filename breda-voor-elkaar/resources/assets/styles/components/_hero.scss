@@ -1,0 +1,74 @@
+.hero {
+  background-image: url('../images/header_bg.png');
+  background-position: center center;
+  min-height: 25rem;
+  font-weight: 800;
+  padding-top: 3.125rem;
+}
+
+@include media-breakpoint-up(xl) {
+  .hero {
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+}
+
+.hero__header {
+  line-height: 3.6875rem;
+  font-size: 3rem;
+}
+
+.hero__sub-header {
+  font-size: 1.375rem;
+  line-height: 3.6875rem;
+  padding-left: .9rem
+}
+
+.hero__form {
+  display: flex;
+  flex-direction: column;
+}
+
+@include media-breakpoint-up(md) {
+  .hero__form {
+    flex-direction: row;
+  }
+}
+
+.hero__search {
+  background: $white;
+  color: $gray;
+  border: 0;
+  height: 4.25rem;
+  padding: calculaterem(19px) calculaterem(17px);
+  width: 100%;
+  margin-bottom: calculaterem(18px);
+}
+
+@include media-breakpoint-up(md) {
+  .hero__search {
+    width: 31.75rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0;
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .hero__search {
+    width: 41.75rem;
+  }
+}
+
+.hero__btn {
+  background: $red;
+  color: $white;
+  height: 4.25rem;
+  margin-bottom: calculaterem(93px);
+}
+
+@include media-breakpoint-up(md) {
+  .hero__btn {
+    width: 10.75rem !important;
+    margin-bottom: 0 !important;
+  }
+}

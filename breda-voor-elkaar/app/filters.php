@@ -38,9 +38,9 @@ add_filter('excerpt_more', function () {
  */
 collect([
     'index', '404', 'archive', 'author', 'category', 'tag', 'taxonomy', 'date', 'home',
-    'frontpage', 'page', 'paged', 'search', 'single', 'singular', 'attachment'
+    'frontpage', 'page', 'paged', 'search', 'single', 'singular', 'attachment',
 ])->map(function ($type) {
-    add_filter("{$type}_template_hierarchy", __NAMESPACE__.'\\filter_templates');
+    add_filter("{$type}_template_hierarchy", __NAMESPACE__ . '\\filter_templates');
 });
 
 /**
@@ -52,7 +52,7 @@ add_filter('template_include', function ($template) {
     }, []);
     if ($template) {
         echo template($template, $data);
-        return get_stylesheet_directory().'/index.php';
+        return get_stylesheet_directory() . '/index.php';
     }
     return $template;
 }, PHP_INT_MAX);
@@ -68,3 +68,21 @@ add_filter('comments_template', function ($comments_template) {
     );
     return template_path(locate_template(["views/{$comments_template}", $comments_template]) ?: $comments_template);
 }, 100);
+
+//return acf array instead of object in blade templates
+add_filter('sober/controller/acf/array', function () {
+    return true;
+});
+
+//Use custom nav walker for menu widget
+add_filter('widget_nav_menu_args', function ($nav_menu_args) {
+    $nav_menu_args = [
+        'menu' => $nav_menu_args['menu'],
+        'items_wrap' => '%3$s',
+        'container' => 'nav',
+        'container_class' => 'footer-menu__nav d-flex flex-column',
+        'walker' => new Widget_Walker(),
+    ];
+
+    return $nav_menu_args;
+});

@@ -1,0 +1,15 @@
+.navbar {
+  min-height: 6.3125rem;
+  color: $black;
+  background: $white;
+  line-height: 1.3125rem;
+}
+
+.navbar__container {
+  margin: $custom-container;
+}
+
+.primary-menu.show {
+  background: $white;
+  padding: calculaterem(15px);
+}

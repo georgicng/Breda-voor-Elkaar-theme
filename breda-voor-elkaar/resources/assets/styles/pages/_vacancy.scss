@@ -1,0 +1,112 @@
+.cv {
+  padding-top: calculaterem(63px);
+  line-height: calculaterem(24px);
+  font-size: calculaterem(16px);
+  background-image: url('../images/vacancy-detail-background.png');
+  background-repeat: no-repeat;
+  background-position: top calculaterem(675px) right 0;
+}
+
+.cv__header {
+  margin-bottom: calculaterem(34px);
+}
+
+.cv__name {
+  line-height: calculaterem(59px);
+  font-size: calculaterem(48px);
+  font-weight: 800;
+  max-width: calculaterem(832px);
+  height: calculaterem(118px);
+  margin-bottom: calculaterem(26px); //0.8%;
+}
+
+.cv__detail {
+  line-height: calculaterem(25px);
+  font-size: calculaterem(14px);
+  max-width: calculaterem(499px);
+  margin-bottom: 0.1%
+}
+
+.cv__social-bar {
+  border-top: calculaterem(2px) solid $black;
+  height: calculaterem(37px);
+  padding: 0.3% 0 0 0;
+}
+
+.cv__links,
+.cv__social-icons {
+  margin-bottom: calculaterem(20px);
+}
+
+.cv__link {
+  line-height: calculaterem(21px);
+  font-size: calculaterem(16px);
+  font-weight: 800;
+  margin-right: calculaterem(12px);
+  min-width: calculaterem(163px);
+  font-family: $headings-font-family;
+}
+
+.cv__social-text {
+  line-height: calculaterem(24px);
+  margin-right: calculaterem(26px);
+}
+
+.cv__social-link {
+  margin-right: calculaterem(20px);
+}
+
+.cv__social-link_last {
+  margin-right: 0;
+}
+
+.cv__content {
+  padding-top: calculaterem(69px);
+  padding-bottom: calculaterem(80px);
+}
+
+.cv__title {
+  line-height: calculaterem(29px);
+  font-size: calculaterem(22px);
+}
+
+.cv__title {
+  margin-bottom: calculaterem(10px);
+}
+
+.cv__blockquote {
+  line-height: calculaterem(42px);
+  font-size: calculaterem(32px);
+  color: $purple;
+  max-width: calculaterem(500px);
+}
+
+.cv__descriptions,
+.cv__requirements,
+.cv__duties {
+  margin-bottom: calculaterem(40px);
+}
+
+.cv__text {
+  margin-bottom: calculaterem(20px);
+}
+
+.cv__list {
+  display: block;
+  list-style-type: disc;
+  list-style-position: outside;
+  padding-left: calculaterem(20px);
+}
+
+.cv__list-item {
+  display: list-item;
+}
+
+.cv__extra-list-item {
+  margin-bottom: calculaterem(20px);
+}
+
+.cv__extra-icon {
+  margin-right: 6.3%;
+  min-width: calculaterem(28.75px);
+}

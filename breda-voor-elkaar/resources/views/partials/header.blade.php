@@ -1,10 +1,8 @@
-<header class="banner">
-  <div class="container">
-    <a class="brand" href="{{ home_url('/') }}">{{ get_bloginfo('name', 'display') }}</a>
-    <nav class="nav-primary">
-      @if (has_nav_menu('primary_navigation'))
-        {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']) !!}
-      @endif
-    </nav>
+<header class="header bg-primary">
+  <div class="container d-none d-md-flex justify-content-md-end header__content">
+    <div class="header__search">
+      <input type="text" placeholder="Zoeken" class="header__input" />
+    </div>
+    <a href="@php echo wp_login_url(); @endphp" class="header__login">Inloggen</a>
   </div>
 </header>

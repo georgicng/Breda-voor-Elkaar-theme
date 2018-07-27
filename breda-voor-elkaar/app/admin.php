@@ -12,8 +12,38 @@ add_action('customize_register', function (\WP_Customize_Manager $wp_customize) 
         'selector' => '.brand',
         'render_callback' => function () {
             bloginfo('name');
-        }
+        },
     ]);
+
+    $wp_customize->add_section(
+        'newsletter',
+        array(
+            'title' => __('Newsletter', 'mooiwerk'),
+            'capability' => 'edit_theme_options', // Capability needed to tweak
+            'description' => __('Set Mailchimp List URL.', 'mooiwerk'),
+        )
+    );
+
+    // Register a new setting "company_name"
+    $wp_customize->add_setting(
+        'mc_subscriptionlist',
+        array(
+            'default' => '', // Default setting/value to save
+            'type' => 'option',
+        )
+    );
+
+    // Define input for setting "company_name"
+    $wp_customize->add_control(new \WP_Customize_Control(
+        $wp_customize,
+        'mc_subscriptionlist_control', // unique ID for the control
+        array(
+            'label' => __('Mailchimp List URL', 'mooiwerk'),
+            'settings' => 'mc_subscriptionlist',
+            'type' => 'text',
+            'section' => 'newsletter',
+        )
+    ));
 });
 
 /**

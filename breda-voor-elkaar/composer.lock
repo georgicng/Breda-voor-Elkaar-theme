@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1387af18b4df853db96edd5d561c8545",
+    "content-hash": "519e6dee82f1689251831382d21644ca",
     "packages": [
         {
             "name": "brain/hierarchy",
@@ -639,6 +639,49 @@
             "description": "The Illuminate View package.",
             "homepage": "https://laravel.com",
             "time": "2018-04-03T12:56:35+00:00"
+        },
+        {
+            "name": "mwdelaney/sage-bootstrap4-navwalker",
+            "version": "1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MWDelaney/sage-bootstrap4-navwalker.git",
+                "reference": "8e9bcfc6ec813df7c2a102b06218334f502858b8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MWDelaney/sage-bootstrap4-navwalker/zipball/8e9bcfc6ec813df7c2a102b06218334f502858b8",
+                "reference": "8e9bcfc6ec813df7c2a102b06218334f502858b8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "bootstrap4-navwalker.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael W. Delaney",
+                    "email": "michael@michaeldelaney.me"
+                }
+            ],
+            "description": "Bootstrap 4 Navbar component navwalker for Sage 9 based themes",
+            "homepage": "https://github.com/MWDelaney/sage-bootstrap4-navwalker",
+            "keywords": [
+                "bootstrap 4",
+                "navbar",
+                "navwalker",
+                "wordpress"
+            ],
+            "time": "2018-05-31T13:07:33+00:00"
         },
         {
             "name": "nesbot/carbon",

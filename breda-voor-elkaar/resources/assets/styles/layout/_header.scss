@@ -1,0 +1,47 @@
+.header {
+    height: 2.1875rem;
+    line-height: 1.0625rem;
+}
+
+.header_color {
+    background: $black;
+}
+
+.header__search {
+    margin-top: 0.5rem;
+    margin-bottom: 0.4375rem;
+    margin-right: 2rem;
+    position: relative;
+    padding-left: 2rem;
+    @include fa-icon;
+    @extend .fas;
+    &:before {
+        content: fa-content($fa-var-search);
+        position: absolute;
+        color: $white;
+        left: calculaterem(5px);
+        top: calculaterem(5px);
+        font-size: calculaterem(15px);
+    }
+}
+
+.header__input {
+    color: $gray;
+    background: rgba( $black, .7) !important;
+    border: 0 !important;
+    &:hover,
+    &:focus {
+        border: 0 !important;
+        background: transparent !important;
+    }
+}
+
+.header__login {
+    margin-top: 0.5625rem;
+    margin-bottom: 0.3125rem;
+    color: $white;
+    &:hover,
+    &:focus {
+        color: $red;
+    }
+}

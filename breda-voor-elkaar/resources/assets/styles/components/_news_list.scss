@@ -1,0 +1,19 @@
+.news-list {
+  padding-top: 2.3125rem !important;
+  padding-bottom: 5rem !important;
+}
+
+.news-list__header {
+  line-height: 1.8125rem;
+  font-weight: 800;
+}
+
+.news-list__item {
+  width: 20rem;
+}
+
+.news-list__link {
+  color: $blue;
+  line-height: calculaterem(27px); //1.6875rem;
+  font-size: calculaterem(20px); //1.25rem;
+}

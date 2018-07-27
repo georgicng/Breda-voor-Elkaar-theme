@@ -4,6 +4,7 @@
  */
 
 /** Media alignment */
+
 .alignnone {
   margin-left: 0;
   margin-right: 0;
@@ -28,7 +29,6 @@
     float: left;
     margin-right: ($spacer / 2);
   }
-
   .alignright {
     float: right;
     margin-left: ($spacer / 2);
@@ -36,6 +36,7 @@
 }
 
 /** Captions */
+
 .wp-caption {
   @extend .figure;
 }
@@ -50,6 +51,7 @@
 }
 
 /** Text meant only for screen readers */
+
 .screen-reader-text {
   @extend .sr-only;
   @extend .sr-only-focusable;

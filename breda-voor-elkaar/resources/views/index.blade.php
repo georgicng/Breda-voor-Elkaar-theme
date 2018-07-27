@@ -1,18 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-  @include('partials.page-header')
+    @include('partials.page-header')
 
-  @if (!have_posts())
-    <div class="alert alert-warning">
-      {{ __('Sorry, no results were found.', 'sage') }}
-    </div>
-    {!! get_search_form(false) !!}
-  @endif
-
-  @while (have_posts()) @php the_post() @endphp
-    @include('partials.content-'.get_post_type())
-  @endwhile
-
-  {!! get_the_posts_navigation() !!}
+    <section class="related">
+        <div class="container">
+            <h1 class="related__header">{!! App::title() !!}</h1>
+            
+            @empty($items)
+                <div class="alert alert-warning">
+                <div>Hello, Nothing to display</div>
+                </div>
+            @endempty
+            <div class="card-columns">
+                @foreach($items as $item)
+                    @include('partials.content-'.get_post_type())
+            
+                @endforeach
+            </div>
+        </div>
+    </section>
+    
+    {!!  App\bootstrap_pagination() !!}
 @endsection

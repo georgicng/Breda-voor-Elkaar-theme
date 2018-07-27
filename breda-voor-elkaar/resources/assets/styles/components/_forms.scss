@@ -1,19 +1,96 @@
-/** Search form */
-.search-form {
-  @extend .form-inline;
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked,
+[type="radio"]:not(:checked)+label:before,
+[type="radio"]:checked+label:before {
+  position: absolute;
+  left: -9999px;
 }
 
-.search-form label {
-  @extend .form-group;
-
-  font-weight: normal;
+[type="checkbox"]:not(:checked)+label,
+[type="checkbox"]:checked+label,
+[type="radio"]:not(:checked)+label:before,
+[type="radio"]:checked+label:before {
+  position: relative;
+  padding-left: calculaterem(23px);
+  cursor: pointer;
 }
 
-.search-form .search-field {
-  @extend .form-control;
+//checkbox aspect 
+[type="checkbox"]:not(:checked)+label:before,
+[type="checkbox"]:checked+label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: calculaterem(16px);
+  height: calculaterem(16px);
+  border: calculaterem(1px) solid $gray;
+  background: #fff;
+  border-radius: calculaterem(4px); //box-shadow: inset 0 1px 3px rgba(0, 0, 0, .1);
 }
 
-.search-form .search-submit {
-  @extend .btn;
-  @extend .btn-secondary;
+//checked mark aspect 
+[type="checkbox"]:checked+label:before {
+  font-weight: 100;
+  content: "\f00c";
+  font-size: 1rem;
+  line-height: 0.8rem;
+  color: $blue;
+  font-family: "Font Awesome 5 Free";
+}
+
+[type="radio"]:checked+label:before {
+  font-weight: 100;
+  content: "\f111";
+  font-size: .5rem;
+  line-height: 0.8rem;
+  color: $blue;
+  font-family: "Font Awesome 5 Free";
+}
+
+// disabled checkbox
+[type="checkbox"]:disabled:not(:checked)+label:before,
+[type="checkbox"]:disabled:checked+label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #ddd;
+}
+
+[type="checkbox"]:disabled:checked+label:after {
+  color: #999;
+}
+
+[type="checkbox"]:disabled+label {
+  color: #aaa;
+}
+
+// hover style just for information
+label:hover:before {
+  border: 2px solid $blue !important;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+textarea {
+  color: $gray;
+  background: $white;
+  line-height: calculaterem(21px);
+  font-size: calculaterem(16px);
+  border: calculaterem(2px) solid $black !important;
+  width: 100%;
+  margin-bottom: calculaterem(12px);
+}
+
+input[type='submit'],
+button[type='submit'] {
+  color: $white;
+  background: $red;
+  text-align: center;
+  line-height: calculaterem(21px);
+  font-size: calculaterem(16px);
+  width: 100%;
+  font-family: $headings-font-family;
+  font-weight: 800;
+  margin-bottom: calculaterem(12px);
 }
