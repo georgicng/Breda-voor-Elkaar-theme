@@ -40,7 +40,7 @@ function create_links_shortcode($atts)
         while ($query->have_posts()) {
             $query->the_post();?>
             <?php if ($loop == 1) {?>
-                    <div class="col-md-4">
+                    <div class="col-md-4 d-flex justify-content-center d-md-block">
                         <ul class="list-group list-group-flush news-list__item">
                 <?php }?>
                         <li class="list-group-item">

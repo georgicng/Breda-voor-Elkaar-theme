@@ -21,7 +21,7 @@ function create_info_boxes_shortcode()
 
     ?>
     <section class="top-news">
-        <div class="container">
+        <div class="container d-flex justify-content-center d-md-block">
             <div class="card-deck top-news__cards">
                 <?php // The Loop
     if ($query->have_posts()) {
