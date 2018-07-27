@@ -11,10 +11,10 @@
                 @include('partials.content-vacancy-socialbar')
             </div>
             <div class="row cv__content">
-                <article class="col-sm-8 cv__profile">
+                <article class="col-lg-8 cv__profile">
                         {!! $vacancy['content'] !!}
                 </article>
-                <aside class="col-sm-4 cv__sidebar sidebar">
+                <aside class="col-lg-4 cv__sidebar sidebar">
                         @include('partials.content-vacancy-extra')
                         @include('partials.content-contact-form')
                 </aside>

@@ -5,11 +5,11 @@
     <section class="vacancy-list">
         <div class="container">
             <div class="row">
-                <aside class="col-md-4 vacancy-list__layered layered">
+                <aside class="col-lg-4 vacancy-list__layered layered">
                     @include('partials.content-vacancy-facets')
                 </aside>
 
-                <main class="col-md-8 vacancy-list__items">
+                <main class="col-lg-8 vacancy-list__items">
                     
                     @foreach($vacancies as $vacancy)
                         @include('partials.content-vacancy')

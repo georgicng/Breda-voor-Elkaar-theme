@@ -104,11 +104,12 @@ class ArchiveVacancies extends Controller
         $this->num_pages = ceil($this->total_posts / $posts_per_page); // How many pages of posts we will need
 
         return array_map(function ($post) {
+            $more = '.<a href="' . get_permalink($post->ID) . '" class="card-link vacancy-card__link">lees meer ›</a>';
             return [
                 'title' => $post->post_title,
                 'link' => get_permalink($post->ID),
                 'image_link' => get_the_post_thumbnail_url($post->ID, [200, 200]),
-                'excerpt' => wp_kses_post(wp_trim_words($post->post_content, 25, '...')),
+                'excerpt' => wp_kses_post(wp_trim_words($post->post_content, 25, $more)),
                 'subtitle' => $post->post_title,
                 'footer' => get_field("image_link", $post->ID),
             ];

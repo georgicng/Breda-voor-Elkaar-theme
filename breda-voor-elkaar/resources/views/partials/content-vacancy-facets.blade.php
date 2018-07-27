@@ -1,4 +1,5 @@
-<form method="get" class="layered__form">
+<a href="#facets" class="list-group-item d-lg-none layered__bar" data-toggle="collapse" aria-expanded="false">Filter</a>
+<form method="get" id="facets" class="layered__form collapse dont-collapse-lg">
     <section class="layered__group">
         @foreach($fields as $field)
             <section class="mb-4 layered__group filter" data-filter="{{$field['name']}}">
@@ -27,5 +28,5 @@
             </section>
         @endforeach
     </section>
-    <button type="submit" class="btn layered__btn">lees meer ></button>
+    <button type="submit" class="layered__btn">lees meer ></button>
 </form>

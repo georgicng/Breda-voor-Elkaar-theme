@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-sm sidebar__item cv__extra">
+    <div class="col-md-9 col-lg-12 sidebar__item cv__extra">
         <h5 class="sidebar__title">Extra informatie</h5>
         <ul class="cv__extra-list">
             <li class="cv__extra-list-item">

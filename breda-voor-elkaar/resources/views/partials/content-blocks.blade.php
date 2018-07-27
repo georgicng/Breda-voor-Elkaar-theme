@@ -1,5 +1,5 @@
 <section class="top-news">
-    <div class="container">
+    <div class="container d-flex justify-content-center d-md-block">
         <div class="card-deck top-news__cards">
             
             @foreach($contentdeck as $card)

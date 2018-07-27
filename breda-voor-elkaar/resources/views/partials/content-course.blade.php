@@ -2,7 +2,7 @@
         <div class="container">
             <h1 class="vacancy__title">{{ $course_title }}</h1>
             <div class="row">
-                <sidebar class="col-lg-4 vacancy-sidebar ">
+                <sidebar class="col-lg-4 vacancy-sidebar d-md-flex justify-content-md-center">
                     <div class="bg-danger text-light p-4">
                         <h3 class="vacancy-sidebar___header">{{$course_intro}}</h3>
                         <div class="vacancy-sidebar___text">

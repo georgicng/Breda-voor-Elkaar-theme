@@ -37,7 +37,7 @@ class App extends Controller
             'theme_location' => 'primary_navigation',
             'menu_class' => 'navbar-nav ml-auto',
             'container_id' => 'main-nav',
-            'container_class' => 'collapse navbar-collapse',
+            'container_class' => 'collapse navbar-collapse primary-menu',
             'walker' => new wp_bootstrap4_navwalker(),
         );
         return $args;

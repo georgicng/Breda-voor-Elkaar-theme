@@ -33,6 +33,11 @@
   padding: 0.3% 0 0 0;
 }
 
+.cv__links,
+.cv__social-icons {
+  margin-bottom: calculaterem(20px);
+}
+
 .cv__link {
   line-height: calculaterem(21px);
   font-size: calculaterem(16px);

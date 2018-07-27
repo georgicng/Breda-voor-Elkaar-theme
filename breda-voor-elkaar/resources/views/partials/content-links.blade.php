@@ -6,7 +6,7 @@
             @foreach($links as $link)
                 
                 @if($loop->first || $loop->iteration % 3 == 1)
-                    <div class="col-md-4">
+                    <div class="col-md-4 d-flex justify-content-center d-md-block">
                         <ul class="list-group list-group-flush news-list__item">
                 @endif
                             <li class="list-group-item">

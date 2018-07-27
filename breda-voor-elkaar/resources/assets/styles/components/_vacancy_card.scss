@@ -33,10 +33,14 @@
   line-height: calculaterem(26px);
   font-size: calculaterem(16px);
   font-family: $headings-font-family;
-  @include media-breakpoint-up(md) {
-    position: absolute;
-    bottom: 55px;
-    right: 170px;
+  display: block;
+  margin-top: calculaterem(10px);
+}
+
+@include media-breakpoint-up(md) {
+  .vacancy-card__link {
+    display: inline;
+    padding-left: calculaterem(40px);
   }
 }
 

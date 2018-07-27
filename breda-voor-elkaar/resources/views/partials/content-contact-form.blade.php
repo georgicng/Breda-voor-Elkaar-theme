@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-sm sidebar__item">
+    <div class="col-md-9 col-lg-12 sidebar__item">
         <h5 class="sidebar__title">Contact</h5>
         <form action="https://formspree.io/{{get_option('admin_email')}}" class="sidebar__form contact-form">
             <div class="form-group">

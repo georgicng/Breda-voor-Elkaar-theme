@@ -34,7 +34,7 @@
                                 <div class="card-img-overlay newsdeck__caption d-flex flex-column justify-content-end text-white">
                                     <h3 class="card-title">{{$item['title']}}</h3>
                                     <p class="card-text">{{$item['excerpt']}}</p>
-                                    <a href="{{$item['link']}}">lees meer ›</a>
+                                    <a href="{{$item['link']}}" class="text-white">lees meer ›</a>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                                 <div class="card-img-overlay newsdeck__caption d-flex flex-column justify-content-end text-white">
                                     <h3 class="card-title">{{$item['title']}}</h3>
                                     <p class="card-text">{{$item['excerpt']}}</p>
-                                    <a href="{{$item['link']}}">lees meer ›</a>
+                                    <a href="{{$item['link']}}" class="text-white">lees meer ›</a>
                                 </div>
                             </div>
                         </div>

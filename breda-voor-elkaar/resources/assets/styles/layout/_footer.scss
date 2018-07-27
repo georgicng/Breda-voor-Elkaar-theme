@@ -1,47 +1,113 @@
 //.footer {}
+.footer_top {
+  display: flex;
+  flex-direction: column;
+}
+
+@include media-breakpoint-up(md) {
+  .footer_top {
+    flex-direction: row;
+  }
+}
+
 .newsletter {
   background: $black;
+  padding-top: calculaterem(30px);
+  padding-right: calculaterem(10px);
+  padding-left: calculaterem(16px);
+  padding-bottom: calculaterem(30px);
   color: $white;
-  padding-top: calculaterem(53px);
-  padding-left: calculaterem(171px);
-  width: 50%;
+  width: 100%;
+}
+
+@include media-breakpoint-up(md) {
+  .newsletter {
+    padding-top: calculaterem(53px);
+    padding-left: calculaterem(64px);
+    padding-right: calculaterem(32px);
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .newsletter {
+    padding-left: calculaterem(48px);
+    padding-right: calculaterem(48px);
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .newsletter {
+    padding-left: calculaterem(171px);
+  }
 }
 
 //.newsletter__wrapper {}
 .newsletter__header {
-  width: calculaterem(352px);
-  height: calculaterem(58px);
   line-height: calculaterem(29px);
   font-size: calculaterem(22px);
   font-weight: 800;
+  margin-bottom: calculaterem(27px);
+}
+
+@include media-breakpoint-up(lg) {
+  .newsletter__header {
+    width: calculaterem(352px);
+    height: calculaterem(58px);
+  }
 }
 
 .newsletter__text {
-  width: calculaterem(336px);
-  height: calculaterem(72px);
-  margin-bottom: calculaterem(49px);
   line-height: calculaterem(24px);
   font-size: calculaterem(16px);
+  margin-bottom: calculaterem(28px);
+}
+
+@include media-breakpoint-up(lg) {
+  .newsletter__text {
+    width: calculaterem(336px);
+    height: calculaterem(72px);
+    margin-bottom: calculaterem(49px);
+  }
 }
 
 .newsletter__input {
-  width: calculaterem(307px);
+  width: 100%;
   height: calculaterem(57px);
+  margin-bottom: calculaterem(10px);
+}
+
+@include media-breakpoint-up(lg) {
+  .newsletter__input {
+    width: calculaterem(307px);
+    margin-bottom: 0;
+  }
 }
 
 .newsletter__button {
-  width: calculaterem(140px);
+  width: 100%;
   height: calculaterem(57px);
   color: $white;
   background: $red;
 }
 
+@include media-breakpoint-up(lg) {
+  .newsletter__button {
+    width: calculaterem(140px);
+  }
+}
+
 .banner {
-  width: 50%;
+  width: 100%;
 }
 
 .banner__image {
   width: 100%;
+}
+
+@include media-breakpoint-up(md) {
+  .banner__image {
+    height: 100%;
+  }
 }
 
 .footer_bottom {
@@ -116,4 +182,20 @@
   padding-top: calculaterem(44px);
   padding-bottom: calculaterem(32px);
   color: $gray;
+}
+
+.nav_menu-2 h5 {
+  color: $green;
+}
+
+.nav_menu-3 h5 {
+  color: $blue;
+}
+
+.nav_menu-4 h5 {
+  color: $yellow;
+}
+
+.nav_menu-5 h5 {
+  color: $purple;
 }

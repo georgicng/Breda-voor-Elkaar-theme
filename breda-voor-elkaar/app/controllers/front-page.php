@@ -50,7 +50,7 @@ class FrontPage extends Controller
             return [
                 'title' => $post->post_title,
                 'link' => $post->post_permalink,
-                'excerpt' => wp_kses_post(wp_trim_words($post->post_content, 25, '...')),
+                'excerpt' => wp_kses_post(wp_trim_words($post->post_content, 40, '...')),
                 'date' =>  date_format(date_create(get_field("date", $post->ID)), "d M"),
                 'lesson' => get_field("lesson", $post->ID),
             ];

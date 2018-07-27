@@ -3,7 +3,7 @@
   padding-bottom: 6.25rem;
   background-image: url('../images/home-background.png');
   background-repeat: no-repeat;
-  background-position: bottom 0rem left 0rem;
+  background-position: bottom 0 left 0;
 }
 
 .vacancy__title {
@@ -11,7 +11,13 @@
 }
 
 .vacancy-sidebar {
-  padding: 0 33px;
+  padding: 0 calculaterem(14px);
+}
+
+@include media-breakpoint-up(lg) {
+  .vacancy-sidebar {
+    padding: 0 calculaterem(33px);
+  }
 }
 
 .vacancy-sidebar___header {
@@ -25,7 +31,12 @@
 .vacancy-sidebar___text {
   font-size: calculaterem(15px);
   line-height: calculaterem(24px);
-  height: calculaterem(546px);
+}
+
+@include media-breakpoint-up(lg) {
+  .vacancy-sidebar___text {
+    min-height: calculaterem(546px);
+  }
 }
 
 .vacancy-sidebar___button {
@@ -70,6 +81,7 @@
 .vacancy-tab__body {
   line-height: calculaterem(24px);
   font-size: calculaterem(16px);
+  margin-bottom: calculaterem(16px);
 }
 
 .vacancy-tab__link {

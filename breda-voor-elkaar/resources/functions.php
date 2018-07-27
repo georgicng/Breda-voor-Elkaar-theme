@@ -58,7 +58,9 @@ array_map(function ($file) use ($sage_error) {
     if (!locate_template($file, true, true)) {
         $sage_error(sprintf(__('Error locating <code>%s</code> for inclusion.', 'sage'), $file), 'File not found');
     }
-}, ['helpers', 'setup', 'filters', 'admin', 'shortcodes/links', 'shortcodes/info_boxes', 'shortcodes/postgrid', 'shortcodes/courses']);
+}, ['helpers', 'setup', 'filters', 'actions', 'admin',
+    'lib/widget_walker', 'shortcodes/links', 'shortcodes/info_boxes',
+    'shortcodes/postgrid', 'shortcodes/courses']);
 
 /**
  * Here's what's happening with these hooks:
