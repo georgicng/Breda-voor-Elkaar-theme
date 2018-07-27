@@ -35,10 +35,19 @@ class ArchiveOrganisations extends Controller
         $this->meta_query = array('relation' => 'OR');
         foreach ($this->filter_keys as $acf_key => $key) {
             if (isset($_GET[$key])) {
-                foreach ($_GET[$key] as $value) {
+                if (is_array($_GET[$key])) {
+                    foreach ($_GET[$key] as $value) {
+                        $meta_addition = array(
+                            'key' => rawurldecode($key),
+                            'value' => rawurldecode($value),
+                            'compare' => 'LIKE',
+                        );
+                        array_push($this->meta_query, $meta_addition);
+                    }
+                } else {
                     $meta_addition = array(
                         'key' => rawurldecode($key),
-                        'value' => rawurldecode($value),
+                        'value' => rawurldecode($_GET[$key]),
                         'compare' => 'LIKE',
                     );
                     array_push($this->meta_query, $meta_addition);

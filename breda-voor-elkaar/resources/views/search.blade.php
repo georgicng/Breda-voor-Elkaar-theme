@@ -12,7 +12,7 @@
                 {!! get_search_form(false) !!}
             @endif
 
-            <h1>{!! App::title() !!}</h1> 
+            <h1 class="my-4">Search Results: {!! App::title() !!}</h1> 
 
             @while(have_posts()) @php the_post() @endphp
                 @include('partials.content-search')

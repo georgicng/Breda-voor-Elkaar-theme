@@ -37,10 +37,19 @@ class ArchiveVacancies extends Controller
         $this->meta_query = array('relation' => 'OR');
         foreach ($this->filter_keys as $acf_key => $key) {
             if (isset($_GET[$key])) {
-                foreach ($_GET[$key] as $value) {
+                if (is_array($_GET[$key])) {
+                    foreach ($_GET[$key] as $value) {
+                        $meta_addition = array(
+                            'key' => rawurldecode($key),
+                            'value' => rawurldecode($value),
+                            'compare' => 'LIKE',
+                        );
+                        array_push($this->meta_query, $meta_addition);
+                    }
+                } else {
                     $meta_addition = array(
                         'key' => rawurldecode($key),
-                        'value' => rawurldecode($value),
+                        'value' => rawurldecode($_GET[$key]),
                         'compare' => 'LIKE',
                     );
                     array_push($this->meta_query, $meta_addition);
@@ -105,13 +114,14 @@ class ArchiveVacancies extends Controller
 
         return array_map(function ($post) {
             $more = '.<a href="' . get_permalink($post->ID) . '" class="card-link vacancy-card__link">lees meer ›</a>';
+            $time = human_time_diff(get_post_time('U', true, $post), current_time('timestamp')) . ' ago';
             return [
                 'title' => $post->post_title,
                 'link' => get_permalink($post->ID),
                 'image_link' => get_the_post_thumbnail_url($post->ID, [200, 200]),
                 'excerpt' => wp_kses_post(wp_trim_words($post->post_content, 25, $more)),
                 'subtitle' => $post->post_title,
-                'footer' => get_field("image_link", $post->ID),
+                'footer' => $time . ' - Breda, Nederland',
             ];
         }, $query->posts);
     }

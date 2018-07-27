@@ -1,7 +1,7 @@
 <header class="header bg-primary">
   <div class="container d-none d-md-flex justify-content-md-end header__content">
     <div class="header__search">
-      <input type="text" placeholder="Zoeken" class="header__input" />
+      <input type="text" placeholder="Zoeken" class="header__input" name="s" id="search_input" onkeypress="search" />
     </div>
     <a href="@php echo wp_login_url(); @endphp" class="header__login">Inloggen</a>
   </div>

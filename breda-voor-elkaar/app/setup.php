@@ -13,6 +13,11 @@ use Roots\Sage\Template\BladeProvider;
 add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('sage/main.css', asset_path('styles/main.css'), false, null);
     wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
+    // scripts.php
+    wp_localize_script('sage/main.js', 'site_data', array(
+        //'debug' => WP_DEBUG,
+        'home' => home_url('/'),
+    ));
 }, 100);
 
 /**
@@ -60,7 +65,7 @@ add_action('after_setup_theme', function () {
      * Enable HTML5 markup support
      * @link https://developer.wordpress.org/reference/functions/add_theme_support/#html5
      */
-    add_theme_support('html5', ['caption', 'comment-form', 'comment-list', 'gallery', 'search-form']);
+    add_theme_support('html5', ['caption', 'comment-form', 'comment-list', 'comment-list', 'gallery', 'search-form']);
 
     /**
      * Enable selective refresh for widgets in customizer

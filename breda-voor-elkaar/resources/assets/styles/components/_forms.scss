@@ -1,15 +1,65 @@
+.layered__field-radio-wrapper {
+  position: relative;
+  padding-left: calculaterem(23px);
+}
+
+[type=radio] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: calculaterem(16px);
+  height: calculaterem(16px);
+  border: calculaterem(1px) solid $gray;
+  background: $white;
+  border-radius: calculaterem(4px);
+}
+
+.layered__field-radio-wrapper:hover input[type=radio]~.checkmark {
+  background-color: $blue;
+}
+
+.layered__field-radio-wrapper input[type=radio]:checked~.checkmark {
+  background-color: $blue;
+}
+
+.checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.layered__field-radio-wrapper input[type=radio]:checked~.checkmark:after {
+  display: block;
+}
+
+.layered__field-radio-wrapper .checkmark:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: calculaterem(8px);
+  height: calculaterem(8px);
+  border: calculaterem(1px) solid $gray;
+  background: $blue;
+  border-radius: calculaterem(4px);
+}
+
 [type="checkbox"]:not(:checked),
-[type="checkbox"]:checked,
-[type="radio"]:not(:checked)+label:before,
-[type="radio"]:checked+label:before {
+[type="checkbox"]:checked {
   position: absolute;
   left: -9999px;
 }
 
 [type="checkbox"]:not(:checked)+label,
 [type="checkbox"]:checked+label,
-[type="radio"]:not(:checked)+label:before,
-[type="radio"]:checked+label:before {
+  {
   position: relative;
   padding-left: calculaterem(23px);
   cursor: pointer;
@@ -25,7 +75,7 @@
   width: calculaterem(16px);
   height: calculaterem(16px);
   border: calculaterem(1px) solid $gray;
-  background: #fff;
+  background: $white;
   border-radius: calculaterem(4px); //box-shadow: inset 0 1px 3px rgba(0, 0, 0, .1);
 }
 
@@ -34,15 +84,6 @@
   font-weight: 100;
   content: "\f00c";
   font-size: 1rem;
-  line-height: 0.8rem;
-  color: $blue;
-  font-family: "Font Awesome 5 Free";
-}
-
-[type="radio"]:checked+label:before {
-  font-weight: 100;
-  content: "\f111";
-  font-size: .5rem;
   line-height: 0.8rem;
   color: $blue;
   font-family: "Font Awesome 5 Free";

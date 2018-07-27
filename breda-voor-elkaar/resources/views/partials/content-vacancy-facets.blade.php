@@ -16,11 +16,11 @@
                         </div>
                     @endforeach
                 @endif
-                @if($field['type']  == "radio")
+                @if($field['type']  == "radio" || $field['type']  == "select")
                     @foreach($field['choices'] as $value => $label)
                             <div class="layered__field-radio-wrapper">
                                 <input type="radio" name="{{$field['name']}}" value="{{$value}}" id="{{$field['name']}}-{{$loop->iteration}}" class="layered__field-radio" 
-                                    @php echo in_array($value, $field['value'])? 'checked':'' @endphp>
+                                    @php echo ($value == $field['value'])? 'checked':'' @endphp><span class="checkmark"></span>
                                 <label for="{{$field['name']}}-{{$loop->iteration}}">{{$label}}</label>
                             </div>
                     @endforeach

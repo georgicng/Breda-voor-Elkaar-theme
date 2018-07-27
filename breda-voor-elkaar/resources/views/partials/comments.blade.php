@@ -10,8 +10,14 @@ if (post_password_required()) {
       {!! sprintf(_nx('One response to &ldquo;%2$s&rdquo;', '%1$s responses to &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'sage'), number_format_i18n(get_comments_number()), '<span>' . get_the_title() . '</span>') !!}
     </h2>
 
-    <ol class="comment-list">
-      {!! wp_list_comments(['style' => 'ol', 'short_ping' => true]) !!}
+    <ol class="medias py-md-5 my-md-5 px-sm-0 mx-sm-0">
+      {!! wp_list_comments([
+        'style'         => 'ol',
+        'max_depth'     => 4,
+        'short_ping'    => true,
+        'avatar_size'   => '50',
+        'walker'        => new Bootstrap_Comment_Walker()
+      ]) !!}
     </ol>
 
     @if (get_comment_pages_count() > 1 && get_option('page_comments'))
