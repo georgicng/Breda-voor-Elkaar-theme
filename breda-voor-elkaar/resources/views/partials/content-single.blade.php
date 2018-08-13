@@ -3,7 +3,7 @@
         <article>
             <h1 class="post__header">{{ $item['title'] }}</h1>
             <div class="post__content" >
-                    {!! $item['content'] !!}
+                    {!! do_shortcode($item['content']) !!}
             </div>
         </article>
         

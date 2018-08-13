@@ -74,5 +74,4 @@ class SingleOrganisations extends Controller
             'youtube' => '#',
         ];
     }
-
 }

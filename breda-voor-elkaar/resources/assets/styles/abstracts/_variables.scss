@@ -37,16 +37,24 @@ $custom-container: 0 10.6875rem;
 $grid-columns-amount: 12;
 //$grid-gutter-width: 3rem;
 //$grid-row-gap-height: 2rem;
-/*$container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
-  xl: 1024px
-);*/
+$grid-breakpoints: ( xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1440px, xxxl: 1980px);
+$container-max-widths: ( sm: 540px, md: 720px, lg: 960px, xl: 1024px, xxl: 1366px, xxxl: 1440px);
+/*
+--breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+*/
 
-$container-max-widths: ( sm: 33.75rem, md: 45rem, lg: 60rem, xl: 64rem);
+//$container-max-widths: ( sm: 33.75rem, md: 45rem, lg: 60rem, xl: 64rem);
 //border
 $border-top: 1.125rem solid $black;
 $enable-rounded: false;
 $card-deck-margin: 1rem;
-$fa-font-path: "../fontawesome";
+$fa-font-path: '../fontawesome';
+//remove blue outline on button and input
+$input-btn-focus-box-shadow: none;
+$navbar-padding-y: 1.875rem;
+$navbar-padding-x: 1.875rem;
+$navbar-light-color: $black;

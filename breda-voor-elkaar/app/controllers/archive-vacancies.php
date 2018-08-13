@@ -125,5 +125,4 @@ class ArchiveVacancies extends Controller
             ];
         }, $query->posts);
     }
-
 }

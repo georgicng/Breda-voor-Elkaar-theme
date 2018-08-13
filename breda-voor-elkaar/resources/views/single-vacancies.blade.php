@@ -8,6 +8,8 @@
         <div class="container">
             <div class="row">
                 @include('partials.content-vacancy-title')
+            </div>
+            <div class="row">
                 @include('partials.content-vacancy-socialbar')
             </div>
             <div class="row cv__content">

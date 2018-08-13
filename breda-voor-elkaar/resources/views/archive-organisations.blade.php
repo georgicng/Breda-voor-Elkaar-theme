@@ -16,7 +16,7 @@
                     @endforeach
                     
                     @empty($organisations)
-                        echo 'Geen vacatures gevonden die voldoen aan uw zoekopdracht.';
+                        <div class="alert">Geen vacatures gevonden die voldoen aan uw zoekopdracht</div>;
                     @endempty
                     
                     {!!  App\bootstrap_pagination()!!}

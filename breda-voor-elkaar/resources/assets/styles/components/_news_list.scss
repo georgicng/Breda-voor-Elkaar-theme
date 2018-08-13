@@ -12,6 +12,12 @@
   width: 20rem;
 }
 
+@include media-breakpoint-up(md) {
+  .news-list__item {
+    width: auto;
+  }
+}
+
 .news-list__link {
   color: $blue;
   line-height: calculaterem(27px); //1.6875rem;

@@ -51,7 +51,7 @@
   border-radius: calculaterem(4px);
 }
 
-[type="checkbox"]:not(:checked),
+/* [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
   position: absolute;
   left: -9999px;
@@ -109,29 +109,60 @@
 label:hover:before {
   border: 2px solid $blue !important;
 }
+*/
+
+[type="checkbox"]:before {
+  width: calculaterem(16px);
+  height: calculaterem(16px);
+  border: calculaterem(1px) solid $gray;
+  background: $white;
+  border-radius: calculaterem(4px);
+  content: close-quote;
+  display: inline-block;
+  cursor: pointer;
+}
+
+[type="checkbox"]:checked:before {
+  font-weight: 100;
+  content: "\f00c";
+  font-size: 1rem;
+  line-height: 0.8rem;
+  color: $blue;
+  font-family: "Font Awesome 5 Free";
+}
+
+[type="checkbox"]:hover:before {
+  border: 2px solid $blue !important;
+}
 
 input[type='text'],
 input[type='email'],
 input[type='tel'],
+input[type='password'],
+select,
 textarea {
-  color: $gray;
-  background: $white;
-  line-height: calculaterem(21px);
+  background: $white; //line-height: calculaterem(21px);
   font-size: calculaterem(16px);
-  border: calculaterem(2px) solid $black !important;
-  width: 100%;
-  margin-bottom: calculaterem(12px);
+  border: calculaterem(2px) solid $black !important; //width: 100%;
+  //margin-bottom: calculaterem(12px);
+}
+
+select {
+  padding: 0 0.75rem;
+}
+
+input[type="checkbox"] {
+  line-height: 0.8rem;
+  margin-right: calculaterem(5px);
 }
 
 input[type='submit'],
 button[type='submit'] {
   color: $white;
   background: $red;
-  text-align: center;
-  line-height: calculaterem(21px);
-  font-size: calculaterem(16px);
-  width: 100%;
+  text-align: center; //line-height: calculaterem(21px);
+  font-size: calculaterem(16px); //width: 100%;
   font-family: $headings-font-family;
-  font-weight: 800;
-  margin-bottom: calculaterem(12px);
+  font-weight: 800; //margin-bottom: calculaterem(12px);
+  border: none;
 }

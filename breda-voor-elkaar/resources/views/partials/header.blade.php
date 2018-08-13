@@ -3,6 +3,11 @@
     <div class="header__search">
       <input type="text" placeholder="Zoeken" class="header__input" name="s" id="search_input" onkeypress="search" />
     </div>
-    <a href="@php echo wp_login_url(); @endphp" class="header__login">Inloggen</a>
+    @if(is_user_logged_in())
+        <a href="{{admin_url( 'profile.php' )}}" class="header__profile">Profile</a>
+        <a href="{{wp_logout_url()}}" class="header__logout">Logout</a>
+    @else
+        <a href="{{wp_login_url()}}" class="header__login">Inloggen</a>
+    @endif
   </div>
 </header>

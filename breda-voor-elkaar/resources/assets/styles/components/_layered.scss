@@ -1,3 +1,7 @@
+.layered {
+  margin-bottom: calculaterem(20px);
+}
+
 .layered__bar {
   color: $blue;
   line-height: calculaterem(29px);

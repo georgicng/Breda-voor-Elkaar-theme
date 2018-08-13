@@ -65,7 +65,7 @@ add_action('after_setup_theme', function () {
      * Enable HTML5 markup support
      * @link https://developer.wordpress.org/reference/functions/add_theme_support/#html5
      */
-    add_theme_support('html5', ['caption', 'comment-form', 'comment-list', 'comment-list', 'gallery', 'search-form']);
+    add_theme_support('html5', ['caption', 'comment-form', 'comment-list', 'gallery', 'search-form']);
 
     /**
      * Enable selective refresh for widgets in customizer
@@ -94,8 +94,8 @@ add_action('after_setup_theme', function () {
  */
 add_action('widgets_init', function () {
     $config = [
-        'before_widget' => '<div class="row %1$s %2$s"><div class="col-sm sidebar__item">',
-        'after_widget' => '</div></div>',
+        'before_widget' => '<div class="%1$s %2$s sidebar__item">',
+        'after_widget' => '</div>',
         'before_title' => '<h5 class="sidebar__title">',
         'after_title' => '</h5>',
     ];

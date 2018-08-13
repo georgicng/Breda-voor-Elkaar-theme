@@ -11,12 +11,13 @@
 }
 
 .vacancy-sidebar {
-  padding: 0 calculaterem(14px);
+  //padding: 0 calculaterem(14px);
+  align-items: start;
 }
 
 @include media-breakpoint-up(lg) {
   .vacancy-sidebar {
-    padding: 0 calculaterem(33px);
+    //padding: 0 calculaterem(33px);
   }
 }
 
@@ -81,7 +82,7 @@
 .vacancy-tab__body {
   line-height: calculaterem(24px);
   font-size: calculaterem(16px);
-  margin-bottom: calculaterem(16px);
+  margin-bottom: calculaterem(32px);
 }
 
 .vacancy-tab__link {

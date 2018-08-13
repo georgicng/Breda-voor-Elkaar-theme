@@ -65,5 +65,21 @@ class App extends Controller
         }
         return $menu_list;
     }
+    
+    public function share()
+    {
+        global $post;
+        global $wp;
 
+        $url = home_url(add_query_arg(array(), $wp->request));
+        $title = str_replace(' ', '+', $post->post_title);
+        $language = get_locale();
+        $summary = str_replace(' ', '+', $post->post_excerpt);
+        return [
+            'twitter' => "https://twitter.com/intent/tweet?url={$url}&text={$summary}",
+            'facebook' => "https://www.facebook.com/sharer.php?u={$url}",
+            'linkedin' => "https://www.linkedin.com/shareArticle?mini=true&url={$url}&title={$title}&summary={$summary}",
+            'gplus' => "https://plus.google.com/share?url={$url}&text={$summary}&hl={$language}",
+        ];
+    }
 }

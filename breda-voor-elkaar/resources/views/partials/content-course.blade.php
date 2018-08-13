@@ -20,7 +20,7 @@
                     @endforeach
 
                     @empty($courses)
-                        <div> No courses found </div>
+                        <div class="alert"> No courses found </div>
                     @endempty
                 </div>
             </div>
