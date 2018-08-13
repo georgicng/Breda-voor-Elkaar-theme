@@ -81,7 +81,7 @@
 				@endif
         @endforeach
          @empty($news)
-            <div> Not enough content to create grid</div>
+            <div class="alert alert-warning"> Not enough content to create grid</div>
         @endempty
         </div>
     </div>

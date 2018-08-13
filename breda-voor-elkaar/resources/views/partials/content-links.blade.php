@@ -10,7 +10,7 @@
                         <ul class="list-group list-group-flush news-list__item">
                 @endif
                             <li class="list-group-item">
-                                <a href="<?php echo get_field("url") ?>" class="news-list__link"><?php the_title();?></a>
+                                <a href="{{ get_field("url") }}" class="news-list__link">@php the_title() @endphp</a>
                             </li>
                 @if($loop->iteration % 3 == 0 || $loop->last)
                         </ul>
@@ -22,7 +22,7 @@
             @endforeach
             
             @empty($links)
-                <div> No links found</div>
+                <div class="alert alert-warning"> No links found</div>
             @endempty
         </div>
     </div>    

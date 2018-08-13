@@ -12,7 +12,7 @@
                     @endforeach
                     
                     @empty($courses)
-                        <div class="alert"> No courses found </div>
+                        <div class="alert alert-warning"> No courses found </div>
                     @endempty
                     {!!  App\bootstrap_pagination()!!}
                 </div>

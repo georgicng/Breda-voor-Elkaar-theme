@@ -34,7 +34,7 @@
             <div class="row cv__content">
                 <article class="col-lg-8 cv__profile">
                     <div class="post__content" >
-                            {!! $content !!}
+                            {!! do_shortcode($content) !!}
                     </div>
                 </article>
                 <aside class="col-lg-4 cv__sidebar sidebar">
