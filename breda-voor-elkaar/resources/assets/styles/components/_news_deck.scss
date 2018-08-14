@@ -5,6 +5,7 @@
 
 .newsdeck__title {
   margin-bottom: 2rem;
+  @include header_1;
 }
 
 .newsdeck__item {
@@ -12,6 +13,14 @@
   border-top: $border-top !important;
   box-shadow: $box-shadow-sm !important;
   color: $black;
+}
+
+.newsdeck__item .card-title {
+  @include header_2;
+}
+
+.newsdeck__item a {
+  @include bold_1;
 }
 
 //.newsdeck__item_big {}
@@ -38,4 +47,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.newsdeck__caption .card-title {
+  @include header_3;
+}
+
+.newsdeck__caption a {
+  @include bold_3;
 }

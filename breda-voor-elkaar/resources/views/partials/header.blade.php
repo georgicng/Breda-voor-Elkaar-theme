@@ -4,8 +4,8 @@
       <input type="text" placeholder="Zoeken" class="header__input" name="s" id="search_input" onkeypress="search" />
     </div>
     @if(is_user_logged_in())
-        <a href="{{admin_url( 'profile.php' )}}" class="header__profile">Profile</a>
-        <a href="{{wp_logout_url()}}" class="header__logout">Logout</a>
+        <a href="{{admin_url( 'profile.php' )}}" class="header__profile">Profiel</a>
+        <a href="{{wp_logout_url()}}" class="header__logout">Log Uit</a>
     @else
         <a href="{{wp_login_url()}}" class="header__login">Inloggen</a>
     @endif

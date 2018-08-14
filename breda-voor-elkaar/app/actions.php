@@ -65,3 +65,25 @@ function remove_tml_register_fields()
     tml_remove_form_field('register', 'register_form');
 }
 add_action('init', 'remove_tml_register_fields');
+
+//set google map api key for acf
+add_action('acf/init', function () {
+    acf_update_setting('google_api_key', 'AIzaSyA9qDweEXseaAPutq5yxeNDYi24OQpL3zo');
+});
+
+//change wp-login logo
+
+add_action('login_enqueue_scripts', function () {
+    ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url(<?php echo App\asset_path('images/logo.png') ?>);
+            height:27px;
+            width:207px;
+            background-size: 207px 27px;
+            background-repeat: no-repeat;
+            padding-bottom: 30px;
+        }
+    </style>
+    <?php
+});

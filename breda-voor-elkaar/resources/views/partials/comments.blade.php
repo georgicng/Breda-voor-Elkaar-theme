@@ -36,7 +36,7 @@ if (post_password_required()) {
 
   @if (!comments_open() && get_comments_number() != '0' && post_type_supports(get_post_type(), 'comments'))
     <div class="alert alert-warning">
-      {{ __('Comments are closed.', 'sage') }}
+      {{ __('Reacties zijn gesloten.', 'sage') }}
     </div>
   @endif
 

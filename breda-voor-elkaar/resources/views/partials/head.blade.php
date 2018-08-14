@@ -5,5 +5,6 @@
   <meta name="description" content="mooiwerk">
   <meta name="keywords" content="mooiwerk">
   <base href="{{get_bloginfo('url')}}/">
+  <link rel="shortcut icon" href="@asset('images/favicon.ico')" />
   @php wp_head() @endphp
 </head>

@@ -166,3 +166,7 @@ button[type='submit'] {
   font-weight: 800; //margin-bottom: calculaterem(12px);
   border: none;
 }
+
+.form-control:focus {
+  background-color: $off-white;
+}

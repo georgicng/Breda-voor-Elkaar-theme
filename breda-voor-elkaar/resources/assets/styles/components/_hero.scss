@@ -16,10 +16,12 @@
 .hero__header {
   line-height: 3.6875rem;
   font-size: 3rem;
+  font-weight: 700;
+  color: $black;
 }
 
 .hero__sub-header {
-  font-size: 1.375rem; //line-height: 3.6875rem;
+  @include header_2;
   padding-left: 0.9rem;
   margin-bottom: calculaterem(31px);
 }

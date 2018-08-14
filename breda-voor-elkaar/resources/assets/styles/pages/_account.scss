@@ -14,3 +14,8 @@
 .post__content {
   margin-bottom: 2rem;
 }
+
+.company__logo {
+  width: calculaterem(144px);
+  height: calculaterem(144px);
+}

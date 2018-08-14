@@ -20,3 +20,10 @@ input[type].header__input {
     background: transparent !important;
   }
 }
+
+.no-background {
+  background-image: unset !important;
+  .vacancy-list__layered {
+    min-height: unset;
+  }
+}

@@ -42,6 +42,11 @@
   margin-bottom: calculaterem(8px);
 }
 
+.vacancy-card__image {
+  max-width: calculaterem(114px);
+  max-height: calculaterem(76px);
+}
+
 @include media-breakpoint-up(md) {
   .vacancy-card__figure {
     margin-bottom: 0;

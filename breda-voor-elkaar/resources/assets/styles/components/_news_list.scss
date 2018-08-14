@@ -4,8 +4,11 @@
 }
 
 .news-list__header {
-  line-height: 1.8125rem;
-  font-weight: 800;
+  @include header_2;
+}
+
+.list-group-item {
+  border: 1px solid $black;
 }
 
 .news-list__item {

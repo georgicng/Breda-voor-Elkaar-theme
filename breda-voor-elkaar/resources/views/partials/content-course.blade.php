@@ -20,7 +20,7 @@
                     @endforeach
 
                     @empty($courses)
-                        <div class="alert"> No courses found </div>
+                        <div class="alert alert-warning">Geen cursussen gevonden </div>
                     @endempty
                 </div>
             </div>

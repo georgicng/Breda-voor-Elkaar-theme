@@ -11,7 +11,7 @@
                 <div class="col-lg-8">
                     @if (!have_posts())
                         <div class="alert alert-warning">
-                            {{ __('Sorry, no results were found.', 'sage') }}
+                            {{ __('Sorry, er zijn geen resultaten gevonden.', 'sage') }}
                         </div>
                         {!! get_search_form(false) !!}
                     @else
@@ -42,7 +42,7 @@
                                         'title' => get_the_title(),
                                         'link' => get_the_permalink(),
                                         'excerpt' => wp_kses_post(wp_trim_words(get_the_content(), 40, '...')),
-                                        'date' =>  date_format(date_create(get_field("date", get_the_ID())), "d M"),
+                                        'date' =>  date_i18n("d M", strtotime(get_field("date", get_the_ID()))),
                                         'lesson' => get_field("lesson", get_the_ID()),
                                     ];
                                 @endphp

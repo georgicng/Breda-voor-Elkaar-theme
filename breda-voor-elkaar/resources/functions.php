@@ -7,6 +7,7 @@
 use Roots\Sage\Config;
 use Roots\Sage\Container;
 
+define('WPLANG', 'nl_NL');
 /**
  * Helper function for prettying up errors
  * @param string $message

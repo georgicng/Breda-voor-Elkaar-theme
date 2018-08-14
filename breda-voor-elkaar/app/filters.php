@@ -87,18 +87,6 @@ add_filter('widget_nav_menu_args', function ($nav_menu_args) {
     return $nav_menu_args;
 });
 
-/* Where to go if after tml login */
-
-add_filter('login_redirect', function ($url) {
-    error_log('redirect url: '. $url);
-    if (current_user_can('edit_posts')) {
-        error_log('redirect to admin: '. admin_url());
-        return admin_url();
-    }
-    error_log('redirect toprofile: '. home_url('/mijn-account'));
-    return home_url('/mijn-account');
-});
-
 //validate custom theme my login registration fields
 add_filter('registration_errors', function ($errors) {
     if (empty($_POST['role'])) {
@@ -113,7 +101,11 @@ add_filter('pre_get_posts', function ($query) {
         
         //alter query to include custom post types in search
         if ($query->is_search) {
-            $query->set('post_type', array( 'post', 'course', 'vacancies' ));
+            if (!empty($_GET['type'])) {
+                $query->set('post_type', array( $_GET['type'] ));
+            } else {
+                $query->set('post_type', array( 'post', 'course', 'vacancies' ));
+            }
         }
 
         // alter the query to change item count for the home and category pages
@@ -123,4 +115,9 @@ add_filter('pre_get_posts', function ($query) {
     }
 
     return $query;
+});
+
+//Change wp-loign title
+add_filter('login_headertitle', function () {
+    return 'Mooiwerk';
 });

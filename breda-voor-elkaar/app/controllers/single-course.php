@@ -27,6 +27,6 @@ class SingleCourse extends Controller
     public function date()
     {
         global $post;
-        return date_format(date_create(get_field("date", $post->ID)), "d M");
+        return date_i18n("d M", strtotime(get_field("date", $post->ID)));
     }
 }
