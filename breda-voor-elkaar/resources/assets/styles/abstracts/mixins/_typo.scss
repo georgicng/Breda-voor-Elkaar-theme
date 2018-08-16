@@ -1,14 +1,18 @@
 @mixin font-mohr($size: false, $colour: false, $weight: false, $lh: false) {
   font-family: Mohr, sans-serif;
+
   @if $size {
     font-size: $size;
   }
+
   @if $colour {
     color: $colour;
   }
+
   @if $weight {
     font-weight: $weight;
   }
+
   @if $lh {
     line-height: $lh;
   }
@@ -16,15 +20,19 @@
 
 @mixin font-mohr-alt($size: false, $colour: false, $weight: false, $lh: false) {
   font-family: Mohr-Alt, Mohr, sans-serif;
+
   @if $size {
     font-size: $size;
   }
+
   @if $colour {
     color: $colour;
   }
+
   @if $weight {
     font-weight: $weight;
   }
+
   @if $lh {
     line-height: $lh;
   }

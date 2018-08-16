@@ -11,9 +11,10 @@
 
 input[type].header__input {
   color: $gray;
-  background: rgba( $black, .7) !important;
+  background: rgba($black, 0.7) !important;
   border: 0 !important;
   margin-bottom: 0;
+
   &:hover,
   &:focus {
     border: 0 !important;
@@ -23,6 +24,7 @@ input[type].header__input {
 
 .no-background {
   background-image: unset !important;
+
   .vacancy-list__layered {
     min-height: unset;
   }

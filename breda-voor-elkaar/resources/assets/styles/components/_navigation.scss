@@ -5,7 +5,7 @@
   line-height: 1.3125rem;
 }
 
-.navbar-light .navbar-nav .active>.nav-link {
+.navbar-light .navbar-nav .active > .nav-link {
   font-weight: bold;
 }
 
@@ -31,6 +31,7 @@
   .primary-menu ul {
     :last-child {
       padding: 0;
+
       a {
         padding-right: 0 !important;
       }

@@ -1,9 +1,10 @@
+/* global site_data */
 export default {
     init() {
         // JavaScript to be fired on all pages
         document
             .getElementById('search_input')
-            .addEventListener('keypress', (event) => {
+            .addEventListener('keypress', event => {
                 const clickedEl = event.target;
                 if (event.keyCode === 13) {
                     const keyword = clickedEl.value.replace(' ', '+');

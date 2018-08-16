@@ -90,7 +90,13 @@ add_filter('widget_nav_menu_args', function ($nav_menu_args) {
 //validate custom theme my login registration fields
 add_filter('registration_errors', function ($errors) {
     if (empty($_POST['role'])) {
-        $errors->add('empty_role', __('<div class="alert"><strong>ERROR<strong>: Please seect a role.</div>', 'mooiwerk'));
+        $errors->add(
+            'empty_role',
+            __(
+                '<div class="alert"><strong>ERROR<strong>: Please seect a role.</div>',
+                'mooiwerk'
+            )
+        );
     }
     return $errors;
 });
@@ -98,7 +104,6 @@ add_filter('registration_errors', function ($errors) {
 //alter main query
 add_filter('pre_get_posts', function ($query) {
     if (!is_admin() && $query->is_main_query()) {
-        
         //alter query to include custom post types in search
         if ($query->is_search) {
             if (!empty($_GET['type'])) {
@@ -107,7 +112,6 @@ add_filter('pre_get_posts', function ($query) {
                 $query->set('post_type', array( 'post', 'course', 'vacancies' ));
             }
         }
-
         // alter the query to change item count for the home and category pages
         if (is_home()) {
             $query->set('posts_per_page', 21);

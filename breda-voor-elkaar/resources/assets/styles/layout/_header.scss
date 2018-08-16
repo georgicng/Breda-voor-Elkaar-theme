@@ -14,9 +14,12 @@
   position: relative;
   padding-left: 2rem;
   max-width: 9rem;
+
   @include fa-icon;
+
   @extend .fas;
-  &:before {
+
+  &::before {
     content: fa-content($fa-var-search);
     position: absolute;
     color: $white;
@@ -26,20 +29,21 @@
   }
 }
 
+.header__profile {
+  padding: 0 3rem;
+}
+
 .header__login,
 .header__logout,
 .header__profile {
   margin-top: 0.5625rem;
   margin-bottom: 0.3125rem;
   color: $white;
-  &:hover,
-  &:focus {
+
+  &:focus,
+  &:hover, {
     color: $gray;
   }
-}
-
-.header__profile {
-  padding: 0 3rem;
 }
 
 .header__input {

@@ -21,25 +21,21 @@
   border-radius: calculaterem(4px);
 }
 
-.layered__field-radio-wrapper:hover input[type=radio]~.checkmark {
+.layered__field-radio-wrapper:hover input[type=radio] ~ .checkmark {
   background-color: $blue;
 }
 
-.layered__field-radio-wrapper input[type=radio]:checked~.checkmark {
+.layered__field-radio-wrapper input[type=radio]:checked ~ .checkmark {
   background-color: $blue;
 }
 
-.checkmark:after {
+.checkmark::after {
   content: '';
   position: absolute;
   display: none;
 }
 
-.layered__field-radio-wrapper input[type=radio]:checked~.checkmark:after {
-  display: block;
-}
-
-.layered__field-radio-wrapper .checkmark:after {
+.layered__field-radio-wrapper .checkmark::after {
   content: '';
   position: absolute;
   left: 0;
@@ -51,67 +47,11 @@
   border-radius: calculaterem(4px);
 }
 
-/* [type="checkbox"]:not(:checked),
-[type="checkbox"]:checked {
-  position: absolute;
-  left: -9999px;
+.layered__field-radio-wrapper input[type=radio]:checked ~ .checkmark::after {
+  display: block;
 }
 
-[type="checkbox"]:not(:checked)+label,
-[type="checkbox"]:checked+label,
-  {
-  position: relative;
-  padding-left: calculaterem(23px);
-  cursor: pointer;
-}
-
-//checkbox aspect 
-[type="checkbox"]:not(:checked)+label:before,
-[type="checkbox"]:checked+label:before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 4px;
-  width: calculaterem(16px);
-  height: calculaterem(16px);
-  border: calculaterem(1px) solid $gray;
-  background: $white;
-  border-radius: calculaterem(4px); //box-shadow: inset 0 1px 3px rgba(0, 0, 0, .1);
-}
-
-//checked mark aspect 
-[type="checkbox"]:checked+label:before {
-  font-weight: 100;
-  content: "\f00c";
-  font-size: 1rem;
-  line-height: 0.8rem;
-  color: $blue;
-  font-family: "Font Awesome 5 Free";
-}
-
-// disabled checkbox
-[type="checkbox"]:disabled:not(:checked)+label:before,
-[type="checkbox"]:disabled:checked+label:before {
-  box-shadow: none;
-  border-color: #bbb;
-  background-color: #ddd;
-}
-
-[type="checkbox"]:disabled:checked+label:after {
-  color: #999;
-}
-
-[type="checkbox"]:disabled+label {
-  color: #aaa;
-}
-
-// hover style just for information
-label:hover:before {
-  border: 2px solid $blue !important;
-}
-*/
-
-[type="checkbox"]:before {
+[type="checkbox"]::before {
   width: calculaterem(16px);
   height: calculaterem(16px);
   border: calculaterem(1px) solid $gray;
@@ -122,16 +62,16 @@ label:hover:before {
   cursor: pointer;
 }
 
-[type="checkbox"]:checked:before {
+[type="checkbox"]:checked::before {
   font-weight: 100;
   content: "\f00c";
   font-size: 1rem;
   line-height: 0.8rem;
   color: $blue;
-  font-family: "Font Awesome 5 Free";
+  font-family: 'Font Awesome 5 Free';
 }
 
-[type="checkbox"]:hover:before {
+[type="checkbox"]:hover::before {
   border: 2px solid $blue !important;
 }
 
@@ -160,13 +100,17 @@ input[type='submit'],
 button[type='submit'] {
   color: $white;
   background: $red;
-  text-align: center; //line-height: calculaterem(21px);
-  font-size: calculaterem(16px); //width: 100%;
+  text-align: center;
+  font-size: calculaterem(16px);
   font-family: $headings-font-family;
-  font-weight: 800; //margin-bottom: calculaterem(12px);
-  border: none;
+  font-weight: 800;
+  //border: none;
+
+  @include underline-from-left;
 }
 
-.form-control:focus {
+.form-control:focus,
+.form-control:hover,
+.form-control:active {
   background-color: $off-white;
 }

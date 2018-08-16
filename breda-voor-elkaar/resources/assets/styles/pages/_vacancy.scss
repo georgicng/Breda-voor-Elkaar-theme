@@ -29,7 +29,7 @@
   line-height: calculaterem(25px);
   font-size: calculaterem(14px);
   max-width: calculaterem(499px);
-  margin-bottom: 0.1%
+  margin-bottom: 0.1%;
 }
 
 .cv__social-bar {
@@ -70,9 +70,11 @@
   }
 }
 
+/*
 .cv__links {
-  //visibility: hidden;
+  visibility: hidden;
 }
+*/
 
 .cv__links input[type='submit'] {
   line-height: calculaterem(21px);
@@ -105,16 +107,15 @@
   padding-bottom: calculaterem(80px);
 }
 
+/*
 .cv__profile {
-  //padding-left: 0;
+  padding-left: 0;
 }
+*/
 
 .cv__title {
   line-height: calculaterem(29px);
   font-size: calculaterem(22px);
-}
-
-.cv__title {
   margin-bottom: calculaterem(10px);
 }
 

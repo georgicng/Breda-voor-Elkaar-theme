@@ -17,16 +17,16 @@ class App extends Controller
             if ($home = get_option('page_for_posts', true)) {
                 return get_the_title($home);
             }
-            return __('Latest Posts', 'sage');
+            return __('Laatste berichten', 'sage');
         }
         if (is_archive()) {
             return get_the_archive_title();
         }
         if (is_search()) {
-            return sprintf(__('Search Results for %s', 'sage'), get_search_query());
+            return sprintf(__('Resultaten voor %s', 'sage'), get_search_query());
         }
         if (is_404()) {
-            return __('Not Found', 'sage');
+            return __('Niet gevonden', 'sage');
         }
         return get_the_title();
     }
@@ -55,7 +55,8 @@ class App extends Controller
         return [
             'twitter' => "https://twitter.com/intent/tweet?url={$url}&text={$summary}",
             'facebook' => "https://www.facebook.com/sharer.php?u={$url}",
-            'linkedin' => "https://www.linkedin.com/shareArticle?mini=true&url={$url}&title={$title}&summary={$summary}",
+            'linkedin' => "https://www.linkedin.com/shareArticle?mini=true&".
+                "url={$url}&title={$title}&summary={$summary}",
             'gplus' => "https://plus.google.com/share?url={$url}&text={$summary}&hl={$language}",
         ];
     }

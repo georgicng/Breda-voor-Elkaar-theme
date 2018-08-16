@@ -8,6 +8,7 @@
 
 .vacancy__title {
   margin-bottom: 2.8125rem;
+
   @include header_1;
 }
 
@@ -16,14 +17,17 @@
   align-items: start;
 }
 
+/*
 @include media-breakpoint-up(lg) {
   .vacancy-sidebar {
-    //padding: 0 calculaterem(33px);
+    padding: 0 calculaterem(33px);
   }
 }
+*/
 
 .vacancy-sidebar___header {
   @include header_2;
+
   color: $white;
   padding-top: calculaterem(29px);
   margin-bottom: calculaterem(17px);
@@ -44,6 +48,7 @@
   height: calculaterem(48px);
   width: calculaterem(165px);
   margin-bottom: calculaterem(32px);
+
   @include bold_1;
 }
 
@@ -58,6 +63,7 @@
   height: 3rem;
   background: $black;
   text-align: center;
+
   @include bold_2;
 }
 

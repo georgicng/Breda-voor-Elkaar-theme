@@ -22,6 +22,7 @@
 
 .hero__sub-header {
   @include header_2;
+
   padding-left: 0.9rem;
   margin-bottom: calculaterem(31px);
 }
@@ -85,5 +86,5 @@
 
 .hero-banner {
   min-height: 320px;
-  width: 100%
+  width: 100%;
 }
