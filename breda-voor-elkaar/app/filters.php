@@ -101,6 +101,50 @@ add_filter('registration_errors', function ($errors) {
     return $errors;
 });
 
+/**
+ * Translate TML ddefault domain text to Dutch.
+ *
+ * @param string $translation  Translated text.
+ * @param string $text         Text to translate.
+ * @param string $domain       Text domain. Unique identifier for retrieving translated strings.
+ *
+ * @return string
+ */
+add_filter('gettext', function ($translation, $text, $domain) {
+    // The 'default' text domain is reserved for the WP core. If no text domain
+    // is passed to a gettext function, the 'default' domain will be used.
+    if ('default' === $domain && 'You are now logged out.' === $text) {
+        $translation = "This is the modified version of the original string...";
+    }
+
+    if ('default' === $domain && 'User registration is currently not allowed.' === $text) {
+        $translation = "This is the modified version of the original string...";
+    }
+
+    if ('default' === $domain && 'Registration complete. Please check your email.' === $text) {
+        $translation = "This is the modified version of the original string...";
+    }
+
+    if ('default' === $domain && 'Check your email for the confirmation link.' === $text) {
+        $translation = "This is the modified version of the original string...";
+    }
+
+    if ('default' === $domain && 'Check your email for your new password.' === $text) {
+        $translation = "This is the modified version of the original string...";
+    }
+    
+    if ('default' === $domain && 'Your password has been reset.' === $text) {
+        $translation = "This is the modified version of the original string...";
+    }
+
+    if ('default' === $domain && '<strong>You have successfully updated WordPress!</strong> Please log back in to see what&#8217;s new.' === $text) {
+        $translation = "This is the modified version of the original string...";
+    }
+
+    return $translation;
+}, 10, 3);
+
+
 //alter main query
 add_filter('pre_get_posts', function ($query) {
     if (!is_admin() && $query->is_main_query()) {
@@ -113,7 +157,7 @@ add_filter('pre_get_posts', function ($query) {
             }
         }
         // alter the query to change item count for the home and category pages
-        if (is_home()) {
+        if (is_home() || is_category()) {
             $query->set('posts_per_page', 21);
         }
     }
@@ -125,3 +169,13 @@ add_filter('pre_get_posts', function ($query) {
 add_filter('login_headertitle', function () {
     return 'Mooiwerk';
 });
+
+/*
+//prevent woo-commerce users admin dashboard access
+add_filter('woocommerce_prevent_admin_access', '__return_false');
+
+//prevent my-account override on login
+add_filter('woocommerce_get_myaccount_page_permalink', function ($permalink) {
+    return admin_url();
+}, 1);
+*/

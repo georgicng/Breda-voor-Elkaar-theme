@@ -70,7 +70,7 @@ class FrontPage extends Controller
                 'title' => $post->post_title,
                 'link' => get_permalink($post->ID),
                 'excerpt' => wp_kses_post(wp_trim_words($post->post_content, 40, '...')),
-                'date' =>  date_i18n("d M", strtotime(get_field("date", $post->ID))),
+                'date' =>  date_i18n("j M", strtotime(get_field("date", $post->ID))),
                 'lesson' => get_field("lesson", $post->ID),
             ];
         }, $query->posts);

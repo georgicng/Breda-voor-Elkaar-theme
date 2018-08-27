@@ -50,6 +50,11 @@
   justify-content: space-between;
 }
 
+.newsdeck__caption {
+  background-color: rgba(0, 0, 0, 0.2);
+  text-shadow: caculaterem(1px) calculaterem(1px) rgba(255, 255, 255, 0.1);
+}
+
 .newsdeck__caption .card-title {
   @include header_3;
 }
