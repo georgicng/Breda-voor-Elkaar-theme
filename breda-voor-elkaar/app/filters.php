@@ -195,3 +195,52 @@ add_filter('acf/prepare_field/key=field_5c05966d1f567', function ($field) {
     }
     return $field;
 });
+
+/*
+//change email from address
+add_filter('wp_mail_from', function ($original_email_address) {
+    return 'info@example.com';
+});
+*/
+ 
+//Change email from name
+add_filter('wp_mail_from_name', function ($original_email_from) {
+    return 'Mooiwerk Breda';
+});
+
+//Change email to HTML
+add_filter('wp_mail_content_type', function ($content_type) {
+    return 'text/html';
+});
+
+//Add signature to email
+add_filter('wp_mail', function ($mail) {
+    $mail['message'] .= '<br><br>Deze email is verstuurd vanuit <a href="mooiwerkbreda.nl">Mooiwerk Breda</a>';
+    return $mail;
+});
+
+/**
+ * In WP Admin filter Edit-Comments.php so it shows current users comments only
+ * Runs only for the Author role.
+ */
+add_filter('pre_get_comments', function ($query) {
+    
+    if (!is_singular('vacancies')) {
+        return $query;
+    }
+        
+    if (get_current_user_id() !== get_the_author_meta('ID') || !current_user_can('administrator')) {
+        $query->query_vars['post_author'] = get_current_user_id() ;
+    }
+
+    return $query;
+});
+
+//enable comments by default for vacancy post type
+add_filter('wp_insert_post_data', function ($data) {
+    if ($data['post_type'] == 'vacancies') {
+        $data['comment_status'] = 1;
+    }
+
+    return $data;
+});

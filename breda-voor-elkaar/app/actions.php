@@ -89,3 +89,31 @@ add_action('login_enqueue_scripts', function () {
     </style>
     <?php
 });
+
+//add TOS to comment form
+add_action('comment_form_logged_in_after', 'comment_tos_field');
+add_action('comment_form_after_fields', 'comment_tos_field');
+function comment_tos_field()
+{
+    if (is_singular('vacancies')) {
+        ?>
+            <div class="form-check">
+                <input type="checkbox" name="tos" id="tos" class="form-check-input"  />
+                <label class="form-check-label" for="tos">
+                    <a href="<?php echo home_url('algemene-voorwaarden') ?>">Ik ga akkoord met de Algemene Voorwaarden</a>
+                </label>       
+            <div>
+        <?php
+    }
+}
+
+/* Comment Validation Hooks */
+add_action('pre_comment_on_post', function ($comment) {
+    if (is_singular('vacancies')) {
+        // See if the checkbox #ag_login_accept was checked
+        if (isset($_POST['tos']) && $_POST['tos'] !== 1) {
+            // Did NOT check the box, do not allow comment
+            wp_die(__("Je was het niet eens met onze algemene voorwaarden"));
+        }
+    }
+}, 10, 2);
