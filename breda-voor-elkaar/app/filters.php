@@ -179,3 +179,19 @@ add_filter('woocommerce_get_myaccount_page_permalink', function ($permalink) {
     return admin_url();
 }, 1);
 */
+
+//set age to select instead of checkbox
+add_filter('acf/prepare_field/key=field_5c05963d1f567', function ($field) {
+    if (is_page('mijn-account')) {
+        $field['type'] = 'select';
+    }
+    return $field;
+});
+
+//set experience to select instead of checkbox
+add_filter('acf/prepare_field/key=field_5c05966d1f567', function ($field) {
+    if (is_page('mijn-account')) {
+        $field['type'] = 'select';
+    }
+    return $field;
+});
