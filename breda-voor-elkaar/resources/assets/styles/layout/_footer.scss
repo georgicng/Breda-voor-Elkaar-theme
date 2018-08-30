@@ -49,6 +49,7 @@
   width: 100%;
   height: calculaterem(57px);
   margin-bottom: calculaterem(10px);
+  border: none;
 }
 
 @include media-breakpoint-up(lg) {

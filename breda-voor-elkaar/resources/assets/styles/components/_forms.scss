@@ -3,7 +3,7 @@
   padding-left: calculaterem(23px);
 }
 
-[type=radio] {
+.layered__field-radio-wrapper [type=radio] {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -51,6 +51,11 @@
   display: block;
 }
 
+input[type="checkbox"] {
+  line-height: 0.8rem;
+  margin-right: calculaterem(5px);
+}
+
 [type="checkbox"]::before {
   width: calculaterem(16px);
   height: calculaterem(16px);
@@ -75,6 +80,7 @@
   border: 2px solid $blue !important;
 }
 
+/*
 input[type='text'],
 input[type='email'],
 input[type='tel'],
@@ -90,10 +96,16 @@ textarea {
 select {
   padding: 0 0.75rem;
 }
+*/
+.form-control {
+  background: $white; //line-height: calculaterem(21px);
+  font-size: calculaterem(16px);
+  border: calculaterem(2px) solid $black; //width: 100%;
+  //margin-bottom: calculaterem(12px);
+}
 
-input[type="checkbox"] {
-  line-height: 0.8rem;
-  margin-right: calculaterem(5px);
+select.form-control {
+  padding: 0 0.75rem;
 }
 
 input[type='submit'],
@@ -104,7 +116,7 @@ button[type='submit'] {
   font-size: calculaterem(16px);
   font-family: $headings-font-family;
   font-weight: 800;
-  //border: none;
+  border: none;
 
   @include underline-from-left;
 }

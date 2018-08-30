@@ -181,15 +181,7 @@ add_filter('woocommerce_get_myaccount_page_permalink', function ($permalink) {
 */
 
 //set age to select instead of checkbox
-add_filter('acf/prepare_field/key=field_5c05963d1f567', function ($field) {
-    if (is_page('mijn-account')) {
-        $field['type'] = 'select';
-    }
-    return $field;
-});
-
-//set experience to select instead of checkbox
-add_filter('acf/prepare_field/key=field_5c05966d1f567', function ($field) {
+add_filter('acf/prepare_field/key=field_5b7ef21994886', function ($field) {
     if (is_page('mijn-account')) {
         $field['type'] = 'select';
     }
@@ -219,6 +211,35 @@ add_filter('wp_mail', function ($mail) {
     return $mail;
 });
 
+// Sets reply-to if it doesn't exist already.
+add_filter('wp_mail', function ($args) {
+    if (!isset($args['headers'])) {
+        $args['headers'] = array();
+    }
+    
+    $headers_ser = serialize($args['headers']);
+
+    // Does it exist already?
+    if (stripos($headers_ser, 'Reply-To:') !== false) {
+        return $args;
+    }
+
+    $site_name = get_option('blogname');
+    $admin_email = get_option('admin_email');
+
+    $reply_to_line = "Reply-To: $site_name <$admin_email>";
+
+    if (is_array($args['headers'])) {
+        $args['headers'][] = 'h:' . $reply_to_line;
+        $args['headers'][] = $reply_to_line . "\r\n";
+    } else {
+        $args['headers'] .= 'h:' . $reply_to_line . "\r\n";
+        $args['headers'] .= $reply_to_line . "\r\n";
+    }
+
+    return $args;
+});
+
 /**
  * In WP Admin filter Edit-Comments.php so it shows current users comments only
  * Runs only for the Author role.
@@ -236,6 +257,7 @@ add_filter('pre_get_comments', function ($query) {
     return $query;
 });
 
+/*
 //enable comments by default for vacancy post type
 add_filter('wp_insert_post_data', function ($data) {
     if ($data['post_type'] == 'vacancies') {
@@ -244,3 +266,61 @@ add_filter('wp_insert_post_data', function ($data) {
 
     return $data;
 });
+*/
+
+/**
+ * Redirect users to custom URL based on their role after login
+ *
+ * @param string $redirect
+ * @param object $user
+ * @return string
+ */
+
+add_filter('woocommerce_login_redirect', function ($redirect, $user) {
+    // Get the first of all the roles assigned to the user
+    $role = $user->roles[0];
+    $dashboard = admin_url();
+    $custom_home = home_url('/mijn-account');
+    $myaccount = get_permalink(wc_get_page_id('myaccount'));
+    if (in_array('volunteer', (array) $user->roles) || in_array('organisation', (array) $user->roles)) {
+        //Redirect users to mijn-account
+        $redirect = $custom_home;
+    } elseif ($role == 'customer' || $role == 'subscriber') {
+        //Redirect customers and subscribers to the "My Account" page
+        $redirect = $myaccount;
+    } else {
+        //Redirect authors and above to the dashboard
+        $redirect = $dashboard;
+    }
+    return $redirect;
+}, 10, 2);
+
+//woocommerce login redirect hack
+add_filter('woocommerce_prevent_admin_access', '__return_false');
+
+// Add New Fields to woocommerce billing address
+add_filter('woocommerce_checkout_fields' , function ($fields) {
+    $fields['billing']['interpolation'] = array(
+        'label'     => __('Tussenvoeging', 'woocommerce'),
+        'placeholder'   => _x('Tussenvoeging', 'placeholder', 'woocommerce'),
+        'required'  => false,
+        'clear'     => true
+     );
+ 
+    $fields['billing']['title'] = array(
+        'label'     => __('Titel', 'woocommerce'),
+        'placeholder'   => _x('Titel', 'placeholder', 'woocommerce'),
+        'required'  => true,
+        'clear'     => true
+     );
+    
+     return $fields;
+});
+
+// Add Billing House # to Address Fields
+ 
+add_filter('woocommerce_order_formatted_billing_address', function ($fields, $order) {
+    $fields['billing_interpolation'] = get_post_meta($order->id, '_billing_interpolation', true);
+    $fields['billing_title'] = get_post_meta($order->id, '_billing_title', true);
+    return $fields;
+}, 10, 2);

@@ -61,7 +61,7 @@ class FrontPage extends Controller
     public function courses()
     {
         $args = array(
-            'post_type' => array('course'),
+            'post_type' => array('class'),
             'posts_per_page' => 3,
         );
         $query = new \WP_Query($args);
@@ -71,7 +71,7 @@ class FrontPage extends Controller
                 'link' => get_permalink($post->ID),
                 'excerpt' => wp_kses_post(wp_trim_words($post->post_content, 40, '...')),
                 'date' =>  date_i18n("j M", strtotime(get_field("date", $post->ID))),
-                'lesson' => get_field("lesson", $post->ID),
+                'lesson' => get_field("sub_title", $post->ID),
             ];
         }, $query->posts);
         wp_reset_postdata();
@@ -80,7 +80,7 @@ class FrontPage extends Controller
 
     public function courseLink()
     {
-        return get_post_type_archive_link('course');
+        return home_url('/Vrijwilligersacademie');
     }
 
     public function courseIntro()

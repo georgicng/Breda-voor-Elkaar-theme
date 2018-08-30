@@ -89,6 +89,15 @@
   padding-left: 0;
 }
 
+.cv__link {
+  line-height: 1.3125rem;
+  font-size: 1rem;
+  font-weight: 800;
+  margin-right: 0.75rem;
+  min-width: 10.1875rem;
+  font-family: $headings-font-family;
+}
+
 .cv__social-text {
   line-height: calculaterem(24px);
   margin-right: calculaterem(26px);

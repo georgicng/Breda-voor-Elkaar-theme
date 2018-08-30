@@ -18,7 +18,10 @@ add_action('init', function () {
 
             $field->render_args['before'] = '<div class="form-group">';
             $field->render_args['after'] = '</div>';
-            if ('checkbox' != $field->get_type()) {
+           
+            if ('submit' == $field->get_type()) {
+                $field->add_attribute('class', 'btn btn-block');
+            } elseif ('checkbox' != $field->get_type()) {
                 $field->add_attribute('class', 'form-control');
             }
         }
@@ -63,7 +66,7 @@ add_action('tml_registered_action', function ($action, $action_obj) {
         // This changes the link text shown on other forms. Use any string value
         // to set the text directly, `true` to use the action title, or `false`
         // to hide.
-        $action_obj->show_on_forms = true;
+        $action_obj->show_on_forms = false;
     }
 }, 10, 2);
 
@@ -90,6 +93,7 @@ add_action('login_enqueue_scripts', function () {
     <?php
 });
 
+/*
 //add TOS to comment form
 add_action('comment_form_logged_in_after', 'comment_tos_field');
 add_action('comment_form_after_fields', 'comment_tos_field');
@@ -106,12 +110,13 @@ function comment_tos_field()
         <?php
     }
 }
+*/
 
 /* Comment Validation Hooks */
 add_action('pre_comment_on_post', function ($comment) {
     if (is_singular('vacancies')) {
         // See if the checkbox #ag_login_accept was checked
-        if (isset($_POST['tos']) && $_POST['tos'] !== 1) {
+        if (!isset($_POST['acf']) || $_POST['acf']['field_5b86d5cc8043b'] !== 1) {
             // Did NOT check the box, do not allow comment
             wp_die(__("Je was het niet eens met onze algemene voorwaarden"));
         }
