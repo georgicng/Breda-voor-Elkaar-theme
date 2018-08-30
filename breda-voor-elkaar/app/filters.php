@@ -153,7 +153,7 @@ add_filter('pre_get_posts', function ($query) {
             if (!empty($_GET['type'])) {
                 $query->set('post_type', array( $_GET['type'] ));
             } else {
-                $query->set('post_type', array( 'post', 'course', 'vacancies' ));
+                $query->set('post_type', array( 'post', 'class', 'vacancies' ));
             }
         }
         // alter the query to change item count for the home and category pages

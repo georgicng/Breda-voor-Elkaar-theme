@@ -36,14 +36,14 @@
                                     $vacancy['subtitle'] = is_array($categories)? implode(", ", $categories) : $categories;
                                 @endphp
                                 @include('partials.content-vacancy')
-                            @elseif($post_type == 'course')
+                            @elseif($post_type == 'class')
                                 @php
                                     $course = [
                                         'title' => get_the_title(),
                                         'link' => get_the_permalink(),
                                         'excerpt' => wp_kses_post(wp_trim_words(get_the_content(), 40, '...')),
-                                        'date' =>  date_i18n("d M", strtotime(get_field("date", get_the_ID()))),
-                                        'lesson' => get_field("lesson", get_the_ID()),
+                                        'date' =>  date_i18n("j M", strtotime(get_field("date", get_the_ID()))),
+                                        'lesson' => get_field("sub_title", get_the_ID()),
                                     ];
                                 @endphp
                                 @include('partials.content-course-card')
