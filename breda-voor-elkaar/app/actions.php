@@ -30,26 +30,77 @@ add_action('init', function () {
 
 //add roles to theme-my-login fields register option
 add_action('init', function () {
-    tml_add_form_field('register', 'role', array(
-        'type'     => 'dropdown',
-        'label'    => 'Role',
-        'options'   => ['volunteer' => 'Vrijwilliger','organisation' => 'Organisatie'],
-        'id'       => 'role',
-        'priority' => 15,
-        'class' => 'form-control',
-        'render_args' => [
-            'before' => '<div class="form-group">',
-            'after' => '</div>'
-        ]
-    ));
-});
+    
+    if (strpos($_SERVER["REQUEST_URI"], 'volunteer') || strpos($_SERVER["REQUEST_URI"], 'organisation') || isset($_POST['type'])) {
+        tml_add_form_field('register', 'firstname', array(
+                'type'     => 'text',
+                'label'    => __('Voornaam'),
+                'value'    => tml_get_request_value('firstname', 'post'),
+                'id'       => 'firstname',
+                'priority' => 5,
+                'class' => 'form-control',
+        ));
 
+        tml_add_form_field('register', 'initials', array(
+            'type'     => 'text',
+            'label'    => __('Tussenvoegsel'),
+            'value'    => tml_get_request_value('initials', 'post'),
+            'id'       => 'initials',
+            'priority' => 5,
+            'class' => 'form-control',
+        ));
+
+        tml_add_form_field('register', 'lastname', array(
+                'type'     => 'text',
+                'label'    => __('Achternaam'),
+                'value'    => tml_get_request_value('lastname', 'post'),
+                'id'       => 'lastname',
+                'priority' => 5,
+                'class' => 'form-control',
+        ));
+
+        tml_add_form_field('register', 'type', array(
+            'type'     => 'hidden',
+            'value'    => (strpos($_SERVER["REQUEST_URI"], 'volunteer') || $_POST['type'] == 'volunteer') ?'volunteer':'organisation',
+            'priority' => 35,
+        ));
+    } else {
+        tml_add_form_field('register', 'role', array(
+            'type'     => 'dropdown',
+            'label'    => 'Rol',
+            'options'   => ['' => 'Standaard', 'volunteer' => 'Vrijwilliger','organisation' => 'Organisatie'],
+            'id'       => 'role',
+            'priority' => 15,
+            'class' => 'form-control',
+            'render_args' => [
+                'before' => '<div class="form-group">',
+                'after' => '</div>'
+            ]
+        ));
+    }
+});
 
 //save theme-my-login fields: in this case set roles
 add_action('user_register', function ($user_id) {
-    if (! empty($_POST['role'])) {
+    if (! empty($_POST['type'])) {
         $user = new WP_User($user_id);
-        $user->set_role($_POST['role']);
+        if ($_POST['type'] == 'volunteer') {
+            $user->set_role($_POST['type']);
+        } elseif ($_POST['type'] == 'organisation') {
+            $user->set_role($_POST['type']);
+        }
+
+        if (!empty($_POST['firstname'])) {
+            update_field('first-name', sanitize_text_field($_POST['firstname']), 'user_'.$user_id);
+        }
+
+        if (!empty($_POST['lastname'])) {
+            update_field('last-name', sanitize_text_field($_POST['lastname']), 'user_'.$user_id);
+        }
+
+        if (!empty($_POST['initials'])) {
+            update_field('initials', sanitize_text_field($_POST['initals']), 'user_'.$user_id);
+        }
     }
 });
 
@@ -97,21 +148,4 @@ add_action('login_enqueue_scripts', function () {
     <?php
 });
 
-/*
-//add TOS to comment form
-add_action('comment_form_logged_in_after', 'comment_tos_field');
-add_action('comment_form_after_fields', 'comment_tos_field');
-function comment_tos_field()
-{
-    if (is_singular('vacancies')) {
-        ?>
-            <div class="form-check">
-                <input type="checkbox" name="tos" id="tos" class="form-check-input"  />
-                <label class="form-check-label" for="tos">
-                    <a href="<?php echo home_url('algemene-voorwaarden') ?>">Ik ga akkoord met de Algemene Voorwaarden</a>
-                </label>
-            <div>
-        <?php
-    }
-}
-*/
+

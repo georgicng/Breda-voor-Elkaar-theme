@@ -89,14 +89,11 @@ add_filter('widget_nav_menu_args', function ($nav_menu_args) {
 
 //validate custom theme my login registration fields
 add_filter('registration_errors', function ($errors) {
-    if (empty($_POST['role'])) {
-        $errors->add(
-            'empty_role',
-            __(
-                '<div class="alert"><strong>ERROR<strong>: Please seect a role.</div>',
-                'mooiwerk'
-            )
-        );
+    if (empty($_POST['firstname'])) {
+        $errors->add('empty_first_name', '<strong>Fout<strong>: Gelieve uw voornaam in te vullen..');
+    }
+    if (empty($_POST['lastname'])) {
+        $errors->add('empty_last_name', '<strong>Fout</strong>: Gelieve uw achternaam in te voeren.');
     }
     return $errors;
 });
