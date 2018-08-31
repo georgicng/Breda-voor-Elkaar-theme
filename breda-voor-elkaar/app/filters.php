@@ -90,10 +90,10 @@ add_filter('widget_nav_menu_args', function ($nav_menu_args) {
 //validate custom theme my login registration fields
 add_filter('registration_errors', function ($errors) {
     if (empty($_POST['firstname'])) {
-        $errors->add('empty_first_name', '<strong>Fout<strong>: Gelieve uw voornaam in te vullen..');
+        $errors->add('empty_first_name', '<strong>FOUT</strong>: Gelieve uw voornaam in te vullen..');
     }
     if (empty($_POST['lastname'])) {
-        $errors->add('empty_last_name', '<strong>Fout</strong>: Gelieve uw achternaam in te voeren.');
+        $errors->add('empty_last_name', '<strong>FOUT</strong>: Gelieve uw achternaam in te voeren.');
     }
     return $errors;
 });
@@ -314,10 +314,20 @@ add_filter('woocommerce_checkout_fields' , function ($fields) {
      return $fields;
 });
 
-// Add Billing House # to Address Fields
- 
+// Add Billing House # to Address Fields 
 add_filter('woocommerce_order_formatted_billing_address', function ($fields, $order) {
     $fields['billing_interpolation'] = get_post_meta($order->id, '_billing_interpolation', true);
     $fields['billing_title'] = get_post_meta($order->id, '_billing_title', true);
     return $fields;
 }, 10, 2);
+
+// acf/load_value/key={$field_key} - filter for a specific field based on it's name
+add_filter('acf/load_value/key=field_5b7efba009d6d', function ($value, $post_id, $field) {
+    // run the_content filter on all textarea values
+    if (empty($value)) {
+        $value = date('Y-m-d', strtotime("+3 months", strtotime("now")));
+    }
+    
+
+    return $value;
+}, 10, 3);

@@ -115,12 +115,12 @@ add_action('init', function () {
 add_action('tml_registered_action', function ($action, $action_obj) {
     if ('lostpassword' == $action) {
         // This changes the page title
-        $action_obj->set_title('Maak hier een veilig wachtwoord aan');
+        $action_obj->set_title('Wachtwoord vergeten');
 
         // This changes the link text shown on other forms. Use any string value
         // to set the text directly, `true` to use the action title, or `false`
         // to hide.
-        $action_obj->show_on_forms = false;
+        $action_obj->show_on_forms = true;
     }
 }, 10, 2);
 
