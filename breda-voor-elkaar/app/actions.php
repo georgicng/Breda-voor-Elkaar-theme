@@ -44,6 +44,7 @@ add_action('init', function () {
     ));
 });
 
+
 //save theme-my-login fields: in this case set roles
 add_action('user_register', function ($user_id) {
     if (! empty($_POST['role'])) {
@@ -52,14 +53,16 @@ add_action('user_register', function ($user_id) {
     }
 });
 
+
 //remove acf fields from theme-my-login registration form
 add_action('init', function () {
     tml_remove_form_field('register', 'register_form');
-});
+}, 10);
+
 
 //change theme-my-login action
 add_action('tml_registered_action', function ($action, $action_obj) {
-    if ('resetpass' == $action) {
+    if ('lostpassword' == $action) {
         // This changes the page title
         $action_obj->set_title('Maak hier een veilig wachtwoord aan');
 
@@ -69,6 +72,7 @@ add_action('tml_registered_action', function ($action, $action_obj) {
         $action_obj->show_on_forms = false;
     }
 }, 10, 2);
+
 
 //set google map api key for acf
 add_action('acf/init', function () {
@@ -105,20 +109,9 @@ function comment_tos_field()
                 <input type="checkbox" name="tos" id="tos" class="form-check-input"  />
                 <label class="form-check-label" for="tos">
                     <a href="<?php echo home_url('algemene-voorwaarden') ?>">Ik ga akkoord met de Algemene Voorwaarden</a>
-                </label>       
+                </label>
             <div>
         <?php
     }
 }
 */
-
-/* Comment Validation Hooks */
-add_action('pre_comment_on_post', function ($comment) {
-    if (is_singular('vacancies')) {
-        // See if the checkbox #ag_login_accept was checked
-        if (!isset($_POST['acf']) || $_POST['acf']['field_5b86d5cc8043b'] !== 1) {
-            // Did NOT check the box, do not allow comment
-            wp_die(__("Je was het niet eens met onze algemene voorwaarden"));
-        }
-    }
-}, 10, 2);

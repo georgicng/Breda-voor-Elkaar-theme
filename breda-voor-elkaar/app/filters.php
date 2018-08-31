@@ -245,13 +245,13 @@ add_filter('wp_mail', function ($args) {
  * Runs only for the Author role.
  */
 add_filter('pre_get_comments', function ($query) {
-    
+        
     if (!is_singular('vacancies')) {
         return $query;
     }
         
-    if (get_current_user_id() !== get_the_author_meta('ID') || !current_user_can('administrator')) {
-        $query->query_vars['post_author'] = get_current_user_id() ;
+    if (get_current_user_id() !== get_the_author_meta('ID')) {
+        $query->query_vars['author__in'] = [get_current_user_id(), get_the_author_meta('ID')] ;
     }
 
     return $query;
