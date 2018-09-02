@@ -1,5 +1,4 @@
 <?php
-
 //prevent volunteers/organisations access to wp-admin
 add_action('admin_init', function () {
     if (!(current_user_can('edit_posts')) && !(defined('DOING_AJAX') && DOING_AJAX)) {
@@ -12,7 +11,7 @@ add_action('admin_init', function () {
 add_action('init', function () {
     foreach (tml_get_forms() as $form) {
         foreach (tml_get_form_fields($form) as $field) {
-            if ('hidden' == $field->get_type()) {
+            if ('hidden' == $field->get_type() || 'radio-group' == $field->get_type()) {
                 continue;
             }
 
@@ -30,46 +29,46 @@ add_action('init', function () {
 
 //add roles to theme-my-login fields register option
 add_action('init', function () {
-    
-    if (strpos($_SERVER["REQUEST_URI"], 'volunteer') || strpos($_SERVER["REQUEST_URI"], 'organisation') || isset($_POST['type'])) {
-        tml_add_form_field('register', 'firstname', array(
-                'type'     => 'text',
-                'label'    => __('Voornaam'),
-                'value'    => tml_get_request_value('firstname', 'post'),
-                'id'       => 'firstname',
-                'priority' => 5,
-                'class' => 'form-control',
-        ));
-
-        tml_add_form_field('register', 'initials', array(
+    tml_add_form_field('register', 'firstname', array(
             'type'     => 'text',
-            'label'    => __('Tussenvoegsel'),
-            'value'    => tml_get_request_value('initials', 'post'),
-            'id'       => 'initials',
+            'label'    => __('Voornaam'),
+            'value'    => tml_get_request_value('firstname', 'post'),
+            'id'       => 'firstname',
             'priority' => 5,
             'class' => 'form-control',
-        ));
+    ));
 
-        tml_add_form_field('register', 'lastname', array(
-                'type'     => 'text',
-                'label'    => __('Achternaam'),
-                'value'    => tml_get_request_value('lastname', 'post'),
-                'id'       => 'lastname',
-                'priority' => 5,
-                'class' => 'form-control',
-        ));
+    tml_add_form_field('register', 'initials', array(
+        'type'     => 'text',
+        'label'    => __('Tussenvoegsel'),
+        'value'    => tml_get_request_value('initials', 'post'),
+        'id'       => 'initials',
+        'priority' => 5,
+        'class' => 'form-control',
+    ));
 
+    tml_add_form_field('register', 'lastname', array(
+            'type'     => 'text',
+            'label'    => __('Achternaam'),
+            'value'    => tml_get_request_value('lastname', 'post'),
+            'id'       => 'lastname',
+            'priority' => 5,
+            'class' => 'form-control',
+    ));
+    
+    if (strpos($_SERVER["REQUEST_URI"], 'volunteer') || strpos($_SERVER["REQUEST_URI"], 'organisation') || isset($_POST['type'])) {
+        //(strpos($_SERVER["REQUEST_URI"], 'volunteer') || $_POST['type'] == 'volunteer') ?'volunteer':'organisation'
         tml_add_form_field('register', 'type', array(
             'type'     => 'hidden',
-            'value'    => (strpos($_SERVER["REQUEST_URI"], 'volunteer') || $_POST['type'] == 'volunteer') ?'volunteer':'organisation',
+            'value'    => 'organisation',
             'priority' => 35,
         ));
     } else {
-        tml_add_form_field('register', 'role', array(
+        tml_add_form_field('register', 'type', array(
             'type'     => 'dropdown',
             'label'    => 'Rol',
-            'options'   => ['' => 'Standaard', 'volunteer' => 'Vrijwilliger','organisation' => 'Organisatie'],
-            'id'       => 'role',
+            'options'   => ['' => 'Standaard', /*'volunteer' => 'Vrijwilliger',*/ 'organisation' => 'Organisatie'],
+            'id'       => 'type',
             'priority' => 15,
             'class' => 'form-control',
             'render_args' => [
@@ -89,19 +88,22 @@ add_action('user_register', function ($user_id) {
         } elseif ($_POST['type'] == 'organisation') {
             $user->set_role($_POST['type']);
         }
-
-        if (!empty($_POST['firstname'])) {
-            update_field('first-name', sanitize_text_field($_POST['firstname']), 'user_'.$user_id);
-        }
-
-        if (!empty($_POST['lastname'])) {
-            update_field('last-name', sanitize_text_field($_POST['lastname']), 'user_'.$user_id);
-        }
-
-        if (!empty($_POST['initials'])) {
-            update_field('initials', sanitize_text_field($_POST['initals']), 'user_'.$user_id);
-        }
     }
+
+    if (!empty($_POST['firstname'])) {
+        update_field('first-name', sanitize_text_field($_POST['firstname']), 'user_'.$user_id);
+    }
+
+    if (!empty($_POST['lastname'])) {
+        update_field('last-name', sanitize_text_field($_POST['lastname']), 'user_'.$user_id);
+    }
+
+    if (!empty($_POST['initials'])) {
+        update_field('initials', sanitize_text_field($_POST['initials']), 'user_'.$user_id);
+    }
+
+    update_field('logged-in', false, 'user_'.$user_id);
+    
 });
 
 
@@ -131,6 +133,29 @@ add_action('acf/init', function () {
         acf_update_setting('google_api_key', get_option('acf_google_map'));
     }
 });
+
+add_action('acf/submit_form', function ($form, $post_id) {
+    
+    $redirect = home_url('/mijn-account');
+    switch ($form['id']) {
+        case 'stage-1':
+            $redirect = add_query_arg('stage', 2, home_url('/setup'));
+            break;
+        case 'stage-2':
+            $redirect = add_query_arg('stage', 3, home_url('/setup'));
+            break;
+        case 'stage-3':
+            $redirect = add_query_arg('stage', 4, home_url('/setup'));
+            break;
+        case 'stage-4':
+            $redirect = home_url('/mijn-account');
+            break;
+    }
+    
+    // redirect
+    wp_redirect($redirect);
+    exit;
+}, 10, 2);
 
 //change wp-login logo
 add_action('login_enqueue_scripts', function () {

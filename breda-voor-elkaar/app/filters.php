@@ -194,19 +194,24 @@ add_filter('wp_mail_from', function ($original_email_address) {
  
 //Change email from name
 add_filter('wp_mail_from_name', function ($original_email_from) {
+    error_log('email: '.$original_email_from);
     return 'Mooiwerk Breda';
 });
 
+/*
 //Change email to HTML
 add_filter('wp_mail_content_type', function ($content_type) {
     return 'text/html';
 });
+*/
+
 
 //Add signature to email
 add_filter('wp_mail', function ($mail) {
     $mail['message'] .= '<br><br>Deze email is verstuurd vanuit <a href="mooiwerkbreda.nl">Mooiwerk Breda</a>';
     return $mail;
 });
+
 
 // Sets reply-to if it doesn't exist already.
 add_filter('wp_mail', function ($args) {
@@ -221,7 +226,7 @@ add_filter('wp_mail', function ($args) {
         return $args;
     }
 
-    $site_name = get_option('blogname');
+    $site_name = 'Mooiwerk Breda';
     $admin_email = get_option('admin_email');
 
     $reply_to_line = "Reply-To: $site_name <$admin_email>";
@@ -236,6 +241,7 @@ add_filter('wp_mail', function ($args) {
 
     return $args;
 });
+
 
 /**
  * In WP Admin filter Edit-Comments.php so it shows current users comments only
@@ -254,16 +260,23 @@ add_filter('pre_get_comments', function ($query) {
     return $query;
 });
 
-/*
-//enable comments by default for vacancy post type
-add_filter('wp_insert_post_data', function ($data) {
-    if ($data['post_type'] == 'vacancies') {
-        $data['comment_status'] = 1;
+add_filter('login_redirect', function ($url, $query, $user) {
+    $role = $user->roles[0];
+    $custom_home = home_url('/mijn-account');
+    $setup_page = get_page_by_title('Opstelling');
+    $setup_home = home_url('/'.$setup_page->post_name);
+    if (in_array('organisation', (array) $user->roles)) {
+        if (get_field('logged-in', "user_".$user->ID) == false) {
+            //Redirect users to mijn-account
+            $url = $setup_home;
+        } else {
+            //Redirect users to mijn-account
+            $url = $custom_home;
+        }
     }
 
-    return $data;
-});
-*/
+    return $url;
+}, 10, 3);
 
 /**
  * Redirect users to custom URL based on their role after login
@@ -278,10 +291,18 @@ add_filter('woocommerce_login_redirect', function ($redirect, $user) {
     $role = $user->roles[0];
     $dashboard = admin_url();
     $custom_home = home_url('/mijn-account');
+    $setup_page = get_page_by_title('Opstelling');
+    $setup_home = home_url('/'.$setup_page->post_name);
     $myaccount = get_permalink(wc_get_page_id('myaccount'));
-    if (in_array('volunteer', (array) $user->roles) || in_array('organisation', (array) $user->roles)) {
-        //Redirect users to mijn-account
-        $redirect = $custom_home;
+    //in_array('volunteer', (array) $user->roles) ||
+    if (in_array('organisation', (array) $user->roles)) {
+        if (get_field('logged-in', "user_".$user->ID) == false) {
+            //Redirect users to mijn-account
+            $redirect = $setup_home;
+        } else {
+            //Redirect users to mijn-account
+            $redirect = $custom_home;
+        }
     } elseif ($role == 'customer' || $role == 'subscriber') {
         //Redirect customers and subscribers to the "My Account" page
         $redirect = $myaccount;
@@ -296,7 +317,7 @@ add_filter('woocommerce_login_redirect', function ($redirect, $user) {
 add_filter('woocommerce_prevent_admin_access', '__return_false');
 
 // Add New Fields to woocommerce billing address
-add_filter('woocommerce_checkout_fields' , function ($fields) {
+add_filter('woocommerce_checkout_fields', function ($fields) {
     $fields['billing']['interpolation'] = array(
         'label'     => __('Tussenvoeging', 'woocommerce'),
         'placeholder'   => _x('Tussenvoeging', 'placeholder', 'woocommerce'),
@@ -314,7 +335,7 @@ add_filter('woocommerce_checkout_fields' , function ($fields) {
      return $fields;
 });
 
-// Add Billing House # to Address Fields 
+// Add Billing House # to Address Fields
 add_filter('woocommerce_order_formatted_billing_address', function ($fields, $order) {
     $fields['billing_interpolation'] = get_post_meta($order->id, '_billing_interpolation', true);
     $fields['billing_title'] = get_post_meta($order->id, '_billing_title', true);
@@ -330,4 +351,22 @@ add_filter('acf/load_value/key=field_5b7efba009d6d', function ($value, $post_id,
     
 
     return $value;
+}, 10, 3);
+
+add_filter('tml_shortcode', function ($content, $form, $arg) {
+
+    if ($form == 'login') {
+        $content = str_replace(
+            '<li class="tml-register-link"><a href="'.home_url('/registren/').'">Register</a></li>',
+            '<li class="tml-register-link"><a href="'.home_url('/organisation/').'">Registreer Organisatie</a></li>',
+            $content
+        );
+        /*$content = str_replace(
+            '<li class="tml-register-link"><a href="'.home_url('/register/').'">Register</a></li>',
+            '<li class="tml-register-link"><a href="'.home_url('/organisation/').'">Registreer Organisatie</a></li>',
+            $content
+        );*/
+    }
+
+    return $content;
 }, 10, 3);
