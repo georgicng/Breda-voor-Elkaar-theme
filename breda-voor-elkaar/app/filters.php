@@ -194,7 +194,6 @@ add_filter('wp_mail_from', function ($original_email_address) {
  
 //Change email from name
 add_filter('wp_mail_from_name', function ($original_email_from) {
-    error_log('email: '.$original_email_from);
     return 'Mooiwerk Breda';
 });
 
@@ -368,7 +367,6 @@ add_filter('tml_shortcode', function ($content, $form, $arg) {
 }, 10, 3);
 
 add_filter("page_template", function ($template) {
-    error_log(json_encode($template));
     global $post;
     if (in_array(
         $post->post_title,
