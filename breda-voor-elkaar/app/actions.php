@@ -55,8 +55,10 @@ add_action('init', function () {
             'priority' => 5,
             'class' => 'form-control',
     ));
+    $organisation = get_page_by_title('Registreer Organisatie');
+    $volunteer = get_page_by_title('Registreer Vrijwilliger');
     
-    if (strpos($_SERVER["REQUEST_URI"], 'volunteer') || strpos($_SERVER["REQUEST_URI"], 'organisation') || isset($_POST['type'])) {
+    if (strpos($_SERVER["REQUEST_URI"], $organisation->post_name) || strpos($_SERVER["REQUEST_URI"], $volunteer->post_name) || isset($_POST['type'])) {
         //(strpos($_SERVER["REQUEST_URI"], 'volunteer') || $_POST['type'] == 'volunteer') ?'volunteer':'organisation'
         tml_add_form_field('register', 'type', array(
             'type'     => 'hidden',
@@ -99,7 +101,7 @@ add_action('user_register', function ($user_id) {
     }
 
     if (!empty($_POST['initials'])) {
-        update_field('initials', sanitize_text_field($_POST['initials']), 'user_'.$user_id);
+        update_field('position', sanitize_text_field($_POST['initials']), 'user_'.$user_id);
     }
 
     update_field('logged-in', false, 'user_'.$user_id);
@@ -135,17 +137,18 @@ add_action('acf/init', function () {
 });
 
 add_action('acf/submit_form', function ($form, $post_id) {
-    
+    $setup_page = get_page_by_title('Opstelling');
+    $setup_url = home_url('/'.$setup_page->post_name);
     $redirect = home_url('/mijn-account');
     switch ($form['id']) {
         case 'stage-1':
-            $redirect = add_query_arg('stage', 2, home_url('/setup'));
+            $redirect = add_query_arg('stage', 2, $setup_url);
             break;
         case 'stage-2':
-            $redirect = add_query_arg('stage', 3, home_url('/setup'));
+            $redirect = add_query_arg('stage', 3, $setup_url);
             break;
         case 'stage-3':
-            $redirect = add_query_arg('stage', 4, home_url('/setup'));
+            $redirect = add_query_arg('stage', 4, $setup_url);
             break;
         case 'stage-4':
             $redirect = home_url('/mijn-account');

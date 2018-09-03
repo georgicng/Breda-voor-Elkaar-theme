@@ -356,17 +356,33 @@ add_filter('acf/load_value/key=field_5b7efba009d6d', function ($value, $post_id,
 add_filter('tml_shortcode', function ($content, $form, $arg) {
 
     if ($form == 'login') {
+        $organisation = get_page_by_title('Registreer Organisatie');
         $content = str_replace(
-            '<li class="tml-register-link"><a href="'.home_url('/registren/').'">Register</a></li>',
-            '<li class="tml-register-link"><a href="'.home_url('/organisation/').'">Registreer Organisatie</a></li>',
+            '<li class="tml-register-link"><a href="'.home_url('/registreren/').'">Registreren</a></li>',
+            '<li class="tml-register-link"><a href="'.home_url('/'.$organisation->post_name).'">Registreer Organisatie</a></li>',
             $content
         );
-        /*$content = str_replace(
-            '<li class="tml-register-link"><a href="'.home_url('/register/').'">Register</a></li>',
-            '<li class="tml-register-link"><a href="'.home_url('/organisation/').'">Registreer Organisatie</a></li>',
-            $content
-        );*/
     }
 
     return $content;
 }, 10, 3);
+
+add_filter("page_template", function ($template) {
+    error_log(json_encode($template));
+    global $post;
+    if (in_array(
+        $post->post_title,
+        [
+        'Opstelling',
+        'Uitloggen',
+        'Registreren',
+        'Registreer Organisatie',
+        'Registreer Vrijwilliger',
+        'Maak hier een veilig wachtwoord aan',
+        'Wachtwoord reset'
+        ]
+    )) {
+        $template = get_template_directory() .'/views/template-centered.blade.php';
+    }
+    return $template;
+});
